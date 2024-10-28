@@ -25,6 +25,7 @@
     "typescript-eslint": "^8.10.0"
   },
   "dependencies": {
-    "express": "^4.21.1"
+    "express": "^4.21.1",
+    "mongodb": "^6.10.0"
   }
 }
