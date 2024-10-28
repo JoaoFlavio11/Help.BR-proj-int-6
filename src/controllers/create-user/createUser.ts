@@ -9,7 +9,7 @@ export class CreateUserControll implements ICreateUserController{
         try{
             const {body} = httpRequest
             
-            const user = await this.createUserRepository.createUser(body)
+            const user = await this.createUserRepository.createUser(body)ç
 
         } catch (error) {
             console.error(error);
