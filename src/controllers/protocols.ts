@@ -3,8 +3,8 @@ export interface HttpResponse<T> {
   body: T | T[] | string;
 }
 
-export interface HttpRequest<b>{
-  params?:any;
-  headers?:any;
-  body?:any;
+export interface HttpRequest<B> {
+  params?: Record<string, unknown>;
+  headers?: Record<string, unknown>;
+  body?: B;
 }
