@@ -1,7 +1,7 @@
 import { User } from "../../models/user";
 import { HttpRequest, HttpResponse } from "../protocols";
-import { CreateUserParams, ICreateUserController, ICreateUserRepository} from "./protocols";
-import validator from 'validator'
+import { CreateUserParams, ICreateUserController, ICreateUserRepository } from "./protocols";
+import validator from 'validator';
 
 export class CreateUserController implements ICreateUserController {
   constructor(private readonly createUserRepository: ICreateUserRepository) {}
@@ -11,32 +11,39 @@ export class CreateUserController implements ICreateUserController {
   }
 
   async handle(
-    httpRequest: HttpRequest<CreateUserParams>,
+    httpRequest: HttpRequest<Partial<CreateUserParams>>,
   ): Promise<HttpResponse<User>> {
     try {
-      //verificar campos obrigatórios
-      const requiredFields = ["firstName", "lastname", "email", "password"];
-
+      // Verificar campos obrigatórios
+      const requiredFields: (keyof CreateUserParams)[] = ["firstName", "lastName", "email", "password"];
+      
       for (const field of requiredFields) {
-        if (!httpRequest?.body?.[field as keyof CreateUserParams]?.length) {
+        if (!httpRequest.body || !httpRequest.body[field]) {
           return {
             statusCode: 400,
             body: `Field ${field} is required`,
           };
         }
       }
-      
-      //verificar se o email é válido
-      const emailIsValid = validator.isEmail(httpRequest.body!.email);
 
-      if(!emailIsValid){
-        return{
+      // Desestruturar os campos assegurados
+      const { firstName, lastName, email, password } = httpRequest.body as CreateUserParams;
+
+      // Verificar se o email é válido
+      if (!validator.isEmail(email)) {
+        return {
           statusCode: 400,
           body: "E-mail is invalid",
-        }
+        };
       }
 
-      const user = await this.createUser(httpRequest.body!);
+      // Chamar o método de criação de usuário com os campos assegurados
+      const user = await this.createUser({
+        firstName,
+        lastName,
+        email,
+        password,
+      });
 
       return {
         statusCode: 201,

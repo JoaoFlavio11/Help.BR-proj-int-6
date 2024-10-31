@@ -7,7 +7,7 @@ export class UpdateUserController implements IUpdateUserController {
 
     async handle(httpRequest: HttpRequest<Partial<UpdateUserParams>>): Promise<HttpResponse<User>> {
         try {
-            const id = httpRequest?.params?.id;
+            const id = httpRequest?.params?.id as string; // Garantir que 'id' seja tratado como uma string
             const body = httpRequest?.body;
 
             // Verificação do ID do usuário
