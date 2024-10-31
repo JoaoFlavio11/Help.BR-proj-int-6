@@ -1,5 +1,6 @@
 import express from "express";
 import { config } from "dotenv";
+import path from "path";
 import { GetUsersController } from "./controllers/get-users/getUsers";
 import { MongoGetUsersRepository } from "./repositories/get-users/mongo-getUsers";
 import { MongoClient } from "./database/mongo";
@@ -14,12 +15,13 @@ const main = async () => {
   const app = express();
   app.use(express.json());
 
+  app.use(express.static(path.join(__dirname,"frontend")));
+
   await MongoClient.connect();
 
 
-
   app.get("/", (req, res) => {
-    res.send("hello world!");
+    res.sendFile(path.join(__dirname, "frontend", "html", "home.html"));
   });
 
   app.get("/users", async (req, res) => {
