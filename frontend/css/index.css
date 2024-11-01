@@ -1,0 +1,94 @@
+@import url(./root.css);
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Open-sans, sans-serif;
+}
+
+body {
+    background-color: #181a1e;
+    color: var(--cor-escuro);
+}
+
+.title{
+    color: var(--cor-escuro);
+}
+
+.botao-padrao {
+    background-color: var(--cor-help-light);
+    color: black;
+
+}
+
+.botao-padrao:hover {
+    background-color: var(--cor-help-verde);
+}
+
+.conteudo {
+    background-color: white;
+    margin-top: 5%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+
+aside {
+    position: fixed;
+    top: 5.4rem;
+    left: 0;
+    width: 20%;
+    margin-left: 1rem;
+}
+
+
+aside .sidebar {
+    background-color: var(--cor-branco);
+    display: flex;
+    flex-direction: column;
+    height: 85vh;
+    top: 1rem;
+    border-radius: var(--border-radius-3);
+}
+
+
+
+aside h3 {
+    font-weight: 400;
+    font-size: 0.87rem;
+}
+
+aside .sidebar a {
+    display: flex;
+    color: var(--cor-helps);
+    margin-left: 1.5rem;
+    gap: 1rem;
+    align-items: center;
+    height: 3.2rem;
+    transition: all .1s ease-in;
+    border-radius: var(--border-radius-1);
+    text-decoration: none;
+    margin-top: 1rem;
+}
+
+aside .sidebar a span {
+    font-size: 1.6rem;
+    transition: all .1s ease-in;
+}
+
+aside .sidebar a:last-child {
+    position: absolute;
+    bottom: 1rem;
+    width: 100%;
+}
+
+
+aside .sidebar a:hover {
+    color: var(--cor-helps2);
+}
+
+aside .sidebar a:hover span {
+    margin-left: 1rem;
+    transition: .4s ease;
+}

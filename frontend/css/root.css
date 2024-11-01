@@ -1,11 +1,10 @@
 :root {
-  --cor-aquas: #2700d4;
+  
+  --cor-helps: #2cad4e;
+  --cor-helps: #4ac46b;
   --cor-help-verde: #0f732a;
-  --cor-aquas-light: #0178ff;
   --cor-help-light: #139135;
-  --cor-aquas-dark: #000e5c;
   --cor-help-dark: #063613;
-  --cor-aqua-escuro: #271285;
   --cor-help-dark2: #104d20;
   --cor-success: #41f1b6;
   --cor-branco: #202528;
@@ -14,12 +13,17 @@
   --cor-info-claro: #dce1eb;
   --cor-escuro: #edeffd;
   --cor-aviso: #c50000;
-  --cor-claro: rgba(0, 0, 0, 0.4);
-  --cor-var-primaria: #111e88;
+  --cor-claro: rgba(0, 0, 0, 0.4);  
   --cor-var-escura: #677483;
   --cor-scrollbar: #a7a7a7;
   --cor-texto: #edeffd;
   --cor-background: #181a1e;
+
+  --cor-aquas: #2700d4;
+  --cor-aquas-light: #0178ff;
+  --cor-aquas-dark: #000e5c;
+  --cor-aqua-escuro: #271285;
+  --cor-var-primaria: #111e88;
 
   --border-radius-cartao: 2rem;
   --border-radius-1: 0.4rem;
