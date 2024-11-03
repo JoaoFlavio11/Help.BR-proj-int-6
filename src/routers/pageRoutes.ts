@@ -5,11 +5,11 @@ import path from "path";
 const pageRouter = Router();
 
 pageRouter.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../../frontend", "html", "home.html"));
+  res.sendFile(path.join(__dirname, "../../public", "html", "home.html"));
 });
 
-pageRouter.get("/doar", (req, res) => {
-  res.sendFile(path.join(__dirname, "../../frontend", "html", "doar.html"));
+pageRouter.get("/cadastroDoacao", (req, res) => {
+  res.sendFile(path.join(__dirname, "../../public", "html", "cadastroDoacao.html"));
 });
 
 export default pageRouter;
