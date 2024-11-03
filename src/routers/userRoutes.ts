@@ -19,17 +19,26 @@ userRouter.get("/", async (req, res) => {
 
 userRouter.post("/", async (req, res) => {
   const mongoCreateUserRepository = new MongoCreateUserRepository();
-  const createUserController = new CreateUserController(mongoCreateUserRepository);
-  const { body, statusCode } = await createUserController.handle({ body: req.body });
+  const createUserController = new CreateUserController(
+    mongoCreateUserRepository,
+  );
+  const { body, statusCode } = await createUserController.handle({
+    body: req.body,
+  });
 
   res.status(statusCode).send(body);
 });
 
 userRouter.patch("/:id", async (req, res) => {
   const mongoUpdateUserRepository = new MongoUpdateUserRepository();
-  const updateUserController = new UpdateUserController(mongoUpdateUserRepository);
-  const { body, statusCode } = await updateUserController.handle({ body: req.body, params: req.params });
-  
+  const updateUserController = new UpdateUserController(
+    mongoUpdateUserRepository,
+  );
+  const { body, statusCode } = await updateUserController.handle({
+    body: req.body,
+    params: req.params,
+  });
+
   res.status(statusCode).send(body);
 });
 

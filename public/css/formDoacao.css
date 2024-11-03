@@ -1,99 +1,99 @@
-@import './root.css';
+@import "./root.css";
 
 body {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background: var(--cor-background);
-    margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background: var(--cor-background);
+  margin: 0;
 }
 
-h1.digit{
-    background-color: var(--cor-help-light);
-    padding: 20px;
-    border-radius: 10px;
-    color:black;
-    font-size: 30px;
+h1.digit {
+  background-color: var(--cor-help-light);
+  padding: 20px;
+  border-radius: 10px;
+  color: black;
+  font-size: 30px;
 }
 
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .top {
-    background-color: var(--cor-branco);
-    padding: 3rem;
-    border-radius: var(--border-radius-3);
-    box-shadow: var(--box-shadow);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 600px;
-    width: 100%;
+  background-color: var(--cor-branco);
+  padding: 3rem;
+  border-radius: var(--border-radius-3);
+  box-shadow: var(--box-shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+  width: 100%;
 }
 
 .title {
-    font-size: 2rem;
-    color: var(--cor-texto);
-    margin-bottom: 1.5rem;
-    text-align: center;
+  font-size: 2rem;
+  color: var(--cor-texto);
+  margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 form {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1rem;
 }
 
 .form-field {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 form label {
-    font-size: 1.1rem;
-    color: var(--cor-texto);
-    margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  color: var(--cor-texto);
+  margin-bottom: 0.5rem;
 }
 
 form input,
 form textarea {
-    padding: 0.8rem;
-    border-radius: var(--border-radius-1);
-    border: 1px solid var(--cor-border);
-    font-size: 1rem;
-    color: var(--cor-preto);
-    box-shadow: var(--box-shadow);
-    transition: border-color 0.3s ease;
+  padding: 0.8rem;
+  border-radius: var(--border-radius-1);
+  border: 1px solid var(--cor-border);
+  font-size: 1rem;
+  color: var(--cor-preto);
+  box-shadow: var(--box-shadow);
+  transition: border-color 0.3s ease;
 }
 
 form input:focus,
 form textarea:focus {
-    border-color: var(--cor-help-dark);
-    outline: none;
+  border-color: var(--cor-help-dark);
+  outline: none;
 }
 
 .btn-box {
-    display: flex;
-    justify-content: center;
-    margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
 }
 
 .solid {
-    padding: 0.8rem 1.5rem;
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: var(--cor-branco);
-    background-color: var(--cor-helps);
-    border: none;
-    border-radius: var(--border-radius-1);
-    cursor: pointer;
-    box-shadow: var(--box-shadow);
-    transition: background-color 0.3s ease;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--cor-branco);
+  background-color: var(--cor-helps);
+  border: none;
+  border-radius: var(--border-radius-1);
+  cursor: pointer;
+  box-shadow: var(--box-shadow);
+  transition: background-color 0.3s ease;
 }
 
 .solid:hover {
-    background-color: var(--cor-helps2);
+  background-color: var(--cor-helps2);
 }
