@@ -1,5 +1,4 @@
 :root {
-  
   --cor-helps: #2cad4e;
   --cor-helps2: #4ac46b;
   --cor-help-verde: #0f732a;
@@ -13,7 +12,7 @@
   --cor-info-claro: #dce1eb;
   --cor-escuro: #edeffd;
   --cor-aviso: #c50000;
-  --cor-claro: rgba(0, 0, 0, 0.4);  
+  --cor-claro: rgba(0, 0, 0, 0.4);
   --cor-var-escura: #677483;
   --cor-scrollbar: #a7a7a7;
   --cor-texto: #edeffd;

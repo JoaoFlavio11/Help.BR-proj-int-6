@@ -1,94 +1,171 @@
 @import url(./root.css);
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    font-family: Open-sans, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: Open-sans, sans-serif;
 }
 
 body {
-    background-color: #181a1e;
-    color: var(--cor-escuro);
+  background-color: #181a1e;
+  color: var(--cor-escuro);
 }
 
-.title{
-    color: var(--cor-escuro);
+.title {
+  color: var(--cor-escuro);
 }
 
 .botao-padrao {
-    background-color: var(--cor-help-light);
-    color: black;
-
+  background-color: var(--cor-help-light);
+  color: black;
 }
 
 .botao-padrao:hover {
-    background-color: var(--cor-help-verde);
+  background-color: var(--cor-help-verde);
 }
 
 .conteudo {
-    background-color: white;
-    margin-top: 5%;
-    margin-left: 20%;
-    margin-right: 20%;
+  background-color: white;
+  margin-top: 5%;
+  margin-left: 20%;
+  margin-right: 20%;
 }
-
 
 aside {
-    position: fixed;
-    top: 5.4rem;
-    left: 0;
-    width: 20%;
-    margin-left: 1rem;
+  position: fixed;
+  top: 5.4rem;
+  left: 0;
+  width: 20%;
+  margin-left: 1rem;
 }
-
 
 aside .sidebar {
-    background-color: var(--cor-branco);
-    display: flex;
-    flex-direction: column;
-    height: 85vh;
-    top: 1rem;
-    border-radius: var(--border-radius-3);
+  background-color: var(--cor-branco);
+  display: flex;
+  flex-direction: column;
+  height: 85vh;
+  top: 1rem;
+  border-radius: var(--border-radius-3);
 }
 
-
-
 aside h3 {
-    font-weight: 400;
-    font-size: 0.87rem;
+  font-weight: 400;
+  font-size: 0.87rem;
 }
 
 aside .sidebar a {
-    display: flex;
-    color: var(--cor-helps);
-    margin-left: 1.5rem;
-    gap: 1rem;
-    align-items: center;
-    height: 3.2rem;
-    transition: all .1s ease-in;
-    border-radius: var(--border-radius-1);
-    text-decoration: none;
-    margin-top: 1rem;
+  display: flex;
+  color: var(--cor-helps);
+  margin-left: 1.5rem;
+  gap: 1rem;
+  align-items: center;
+  height: 3.2rem;
+  transition: all 0.1s ease-in;
+  border-radius: var(--border-radius-1);
+  text-decoration: none;
+  margin-top: 1rem;
 }
 
 aside .sidebar a span {
-    font-size: 1.6rem;
-    transition: all .1s ease-in;
+  font-size: 1.6rem;
+  transition: all 0.1s ease-in;
 }
 
 aside .sidebar a:last-child {
-    position: absolute;
-    bottom: 1rem;
-    width: 100%;
+  position: absolute;
+  bottom: 1rem;
+  width: 100%;
 }
 
-
 aside .sidebar a:hover {
-    color: var(--cor-helps2);
+  color: var(--cor-helps2);
 }
 
 aside .sidebar a:hover span {
-    margin-left: 1rem;
-    transition: .4s ease;
+  margin-left: 1rem;
+  transition: 0.4s ease;
 }
+
+.container-parceiros {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #00bcd4; /* Cor de fundo semelhante ao da imagem */
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px; /* Ajuste a largura conforme necessário */
+  margin: 20px auto;
+}
+
+.container-parceiros h1 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 2em;
+}
+
+.empresa {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffc107; /* Cor de fundo dos itens */
+  color: #333;
+  font-weight: bold;
+  width: 100%;
+  padding: 10px 20px;
+  margin: 10px 0;
+  border-radius: 10px;
+}
+
+body {
+  background-color: #181a1e;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-donation {
+  width: calc(100% - 260px); /* Ajuste para evitar sobreposição com a sidebar */
+  margin-left: 260px; /* Distância da sidebar */
+  padding: 20px;
+  background-color: #282c34;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.doacoes-lista {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Exibir 3 itens por linha */
+  gap: 20px;
+  width: 100%;
+}
+
+.doacao-card {
+  background-color: #f9f9f9;
+  color: #333;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  overflow: hidden;
+}
+
+.doacao-card:hover {
+  transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+}
+
+.doacao-card h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.doacao-card p {
+  font-size: 1em;
+  line-height: 1.4;
+}
+
