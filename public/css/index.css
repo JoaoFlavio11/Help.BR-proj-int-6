@@ -149,7 +149,7 @@ body {
   color: #333;
   border: 1px solid #ddd;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: var(--border-radius-cartao);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
   overflow: hidden;
@@ -157,6 +157,9 @@ body {
 
 .doacao-card:hover {
   transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+  background-color: var(--cor-helps2);
+  border: 2px solid var(--cor-help-verde);
+  transition: transform 0.3s ease;
 }
 
 .doacao-card h2 {
@@ -169,3 +172,28 @@ body {
   line-height: 1.4;
 }
 
+/* Estilo do botão "Adicionar ao carrinho" */
+.donate-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  background-color: var(--cor-help-dark2);
+  color: #fff;
+  border: none;
+  border-radius: var(--border-radius-cartao);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.donate-btn:hover{
+  background-color: var(--cor-help-dark);
+}
+
+/* Exibe o botão ao passar o mouse no card */
+.doacao-card:hover .donate-btn {
+  opacity: 1;
+  transform: translateY(0);
+}
