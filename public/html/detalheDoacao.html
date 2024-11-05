@@ -1,0 +1,81 @@
+<!-- public/html/detalheDoacao.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+  <title>Detalhes da Doação</title>
+  <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+      <!-- The sidebar -->
+      <aside>
+        <!--Sidebar-->
+        <div class="sidebar">
+          <a href="http://localhost:3000/">
+            <span class="material-symbols-outlined">grid_view</span>
+            <h3><b>Página Inicial</b></h3>
+          </a>
+  
+          <a href="http://localhost:3000/doacoes">
+            <span class="material-symbols-outlined"> insert_chart </span>
+            <h3><b>Doacoes disponíveis</b></h3>
+          </a>
+  
+          <a href="http://localhost:3000/cadastroDoacao">
+            <span class="material-symbols-outlined">bid_landscape</span>
+            <h3><b>Crie sua Doação!</b></h3>
+          </a>
+  
+          <a href="http://localhost:3000/parceiros">
+            <span class="material-symbols-outlined">settings_accessibility</span>
+            <h3><b>Empresas parceiras</b></h3>
+          </a>
+          
+          <a href="http://localhost:3000/">
+            <span class="material-symbols-outlined">logout</span>
+            <h3><b>Sair</b></h3>
+          </a>
+        </div>
+        
+      </aside>
+      <!--Sidebar end-->
+  
+
+  <div class="detalhes-container">
+    <h1 id="doacao-nome">Nome da Doação</h1>
+    <p id="doacao-descricao">Descrição da doação</p>
+    <p><strong>Tipo de Item:</strong> <span id="doacao-tipo">Tipo</span></p>
+    <p><strong>Quantidade:</strong> <span id="doacao-quantidade">Quantidade</span></p>
+    <input type="text" name="CPF" placeholder="Digite seu CPF">
+    <input type="email" name="" placeholder="" id="">
+    <button>Doar</button>
+  </div>
+
+  <script>
+    // Carrega os detalhes da doação a partir do ID da URL
+    async function carregarDetalhesDoacao() {
+      const id = window.location.pathname.split("/").pop();
+      try {
+        const response = await fetch(`/api/doacoes/${id}`);
+        const donation = await response.json();
+
+        if (response.ok) {
+          document.getElementById("doacao-nome").textContent = donation.donationName;
+          document.getElementById("doacao-descricao").textContent = donation.donationDescription;
+          document.getElementById("doacao-tipo").textContent = donation.itemType;
+          document.getElementById("doacao-quantidade").textContent = donation.quantity;
+        } else {
+          document.querySelector(".detalhes-container").innerHTML = "<p>Doação não encontrada.</p>";
+        }
+      } catch (error) {
+        console.error("Erro ao carregar detalhes da doação:", error);
+        document.querySelector(".detalhes-container").innerHTML = "<p>Erro ao carregar detalhes da doação.</p>";
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", carregarDetalhesDoacao);
+  </script>
+</body>
+</html>
