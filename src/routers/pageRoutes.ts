@@ -8,7 +8,7 @@ pageRouter.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../../public", "html", "home.html"));
 });
 
-pageRouter.get("/parceiros",(req,res) => {
+pageRouter.get("/parceiros", (req, res) => {
   res.sendFile(path.join(__dirname, "../../public", "html", "parceiros.html"));
 });
 
