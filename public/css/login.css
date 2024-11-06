@@ -1,0 +1,68 @@
+@import url("../css/root.css");
+
+* {
+  font-family: sans-serif;
+}
+
+body {
+  background-color: var(--cor-help-light);
+}
+
+form {
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius-cartao);
+  background-color: var(--cor-branco2);
+}
+
+input,
+button {
+  padding: var(--padding-login);
+  margin-bottom: var(--padding-login);
+  color: var(--cor-texto);
+}
+
+input{
+    border-radius: var(--border-radius-2);
+    border: none;
+}
+
+button{
+    border-radius: var(--border-radius-login);
+    cursor: pointer;
+}
+
+button:active{
+    opacity: 0.8;
+    transform: scale(1.1);
+}
+
+.clear {
+  background-color: transparent;
+  border: 2px solid var(--cor-branco2);
+}
+
+.clear:hover{
+    border: 2px solid var(--cor-help-verde);
+    color: var(--cor-help-light);
+    font-weight: bold;
+}
+
+.solid {
+  background-color: var(--cor-help-light);
+  color: var(--cor-texto);
+  border: none;
+}
+
+.solid:hover{
+    background-color: var(--cor-help-verde);
+}
+
+.outline{
+    background-color: transparent;
+    border: 2px solid var(--cor-branco);
+}
+
+.outline:hover{
+    background-color: var(--cor-help-verde);
+    border: 2px solid var(--cor-branco2);
+}
