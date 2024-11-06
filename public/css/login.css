@@ -6,12 +6,18 @@
 
 body {
   background-color: var(--cor-help-light);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 form {
   box-shadow: var(--box-shadow);
   border-radius: var(--border-radius-cartao);
   background-color: var(--cor-branco2);
+  padding: var(--padding-1);
+  width: 25rem;
 }
 
 input,
@@ -19,21 +25,21 @@ button {
   padding: var(--padding-login);
   margin-bottom: var(--padding-login);
   color: var(--cor-texto);
+  width: -webkit-fill-available;
 }
 
-input{
-    border-radius: var(--border-radius-2);
-    border: none;
+input {
+  border-radius: var(--border-radius-2);
+  border: none;
 }
 
-button{
-    border-radius: var(--border-radius-login);
-    cursor: pointer;
+button {
+  border-radius: var(--border-radius-login);
+  cursor: pointer;
 }
 
-button:active{
-    opacity: 0.8;
-    transform: scale(1.1);
+button:active {
+  opacity: 0.8;
 }
 
 .clear {
@@ -41,10 +47,10 @@ button:active{
   border: 2px solid var(--cor-branco2);
 }
 
-.clear:hover{
-    border: 2px solid var(--cor-help-verde);
-    color: var(--cor-help-light);
-    font-weight: bold;
+.clear:hover {
+  border: 2px solid var(--cor-help-verde);
+  color: var(--cor-help-light);
+  font-weight: bold;
 }
 
 .solid {
@@ -53,16 +59,16 @@ button:active{
   border: none;
 }
 
-.solid:hover{
-    background-color: var(--cor-help-verde);
+.solid:hover {
+  background-color: var(--cor-help-verde);
 }
 
-.outline{
-    background-color: transparent;
-    border: 2px solid var(--cor-branco);
+.outline {
+  background-color: transparent;
+  border: 2px solid var(--cor-branco);
 }
 
-.outline:hover{
-    background-color: var(--cor-help-verde);
-    border: 2px solid var(--cor-branco2);
+.outline:hover {
+  background-color: var(--cor-help-verde);
+  border: 2px solid var(--cor-branco2);
 }

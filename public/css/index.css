@@ -185,10 +185,12 @@ body {
   cursor: pointer;
   opacity: 0;
   transform: translateY(10px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
 }
 
-.donate-btn:hover{
+.donate-btn:hover {
   background-color: var(--cor-help-dark);
 }
 
