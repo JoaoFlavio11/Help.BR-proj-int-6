@@ -10,6 +10,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  color: var(--cor-texto);
 }
 
 form {
@@ -23,23 +24,33 @@ form {
 input,
 button {
   padding: var(--padding-login);
-  margin-bottom: var(--padding-login);
-  color: var(--cor-texto);
   width: -webkit-fill-available;
+  font-weight: bold;
 }
 
 input {
   border-radius: var(--border-radius-2);
   border: none;
+  color: var(--cor-branco2);
 }
 
 button {
   border-radius: var(--border-radius-login);
   cursor: pointer;
+  margin-bottom: var(--padding-login);
+  color: var(--cor-texto);
 }
 
-button:active {
-  opacity: 0.8;
+button:active{
+  opacity: 0.9;
+}
+
+button:disabled{
+  opacity: 0.4;
+}
+
+.form-field{
+  margin-bottom: var(--padding-login);
 }
 
 .clear {
@@ -71,4 +82,14 @@ button:active {
 .outline:hover {
   background-color: var(--cor-help-verde);
   border: 2px solid var(--cor-branco2);
+}
+
+.error{
+  background-color: var(--cor-aviso);
+  border-radius: var(--border-radius-1);
+  padding: var(--padding-error);
+  font-weight: bolder;  
+  color: var(--cor-texto);
+  display: none;
+  margin: 0.2rem;
 }
