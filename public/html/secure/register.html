@@ -4,11 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/login.css" />
-    <title>HELP.br</title>
+    <title>Registre-se</title>
   </head>
   <body>
     <form action="" method="post">
       <div class="form-field">
+        <h3>Cadastre-se!</h3>
         <div><label>Email</label></div>
         <input type="email" name="email" id="email" placeholder="seu@email.com" onchange="onChangeEmail()"/>
         <div class="error" id="email-required-error">Email é obrigatório</div>
@@ -20,16 +21,14 @@
         <div class="error" id="password-required-error">Senha é obrigatória</div>
     </div>
     <div>
-        <button type="button" class="clear" id="recover-password-button" disabled="true">Recuperar senha</button>
+        <button type="button" class="solid" id="login-button" disabled="true" onclick="login()">Criar conta!</button>
     </div>
     <div>
-        <button type="button" class="solid" id="login-button" disabled="true">Entrar</button>
-    </div>
-    <div>
-        <button type="button" class="outline">Registrar</button>
+        <button type="button" class="outline" onclick="authPage()" >Já tem cadastro? Clique aqui</button>
     </div>
     </form>
   </body>
-  <script src="../js/login.js"></script>
-  <script src="../js/validations.js"></script>
+  <script src="../../js/secure/login.js"></script>
+  <script src="../../js/secure/validations.js"></script>
+  <script src="../../firebase/firebaseConfig.js"></script>
 </html>

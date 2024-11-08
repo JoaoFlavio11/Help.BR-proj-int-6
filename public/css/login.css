@@ -91,5 +91,5 @@ button:disabled{
   font-weight: bolder;  
   color: var(--cor-texto);
   display: none;
-  margin: 0.2rem;
+  margin: var(--border-error);
 }

@@ -1,3 +1,4 @@
+ 
 /* eslint-disable no-undef */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 function onChangeEmail() {
@@ -9,6 +10,18 @@ function onChangePassword() {
     toggleButtonsDisable();
     togglePasswordErrors();
 } 
+
+function login(){
+    window.location.href = "http://localhost:3000/";
+}
+
+function register(){
+    window.location.href = "http://localhost:3000/register";
+}
+
+function authPage(){
+    window.location.href = "http://localhost:3000/login";
+}
 
 function toggleEmailErrors() {
     const email = form.email().value;
