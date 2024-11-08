@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 document.addEventListener("DOMContentLoaded", async () => {
   const container = document.getElementById("doacoes-container");
 
