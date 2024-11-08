@@ -28,6 +28,7 @@
   "dependencies": {
     "ethers": "^6.13.4",
     "express": "^4.21.1",
+    "firebase": "^11.0.1",
     "mongodb": "^6.10.0",
     "mongoose": "^8.8.0",
     "validator": "^13.12.0"
