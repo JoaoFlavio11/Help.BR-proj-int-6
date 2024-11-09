@@ -9,7 +9,7 @@ const donationRouter = Router();
 
 donationRouter.get("/cadastroDoacao", (req: Request, res: Response) => {
   res.sendFile(
-    path.join(__dirname, "../../public", "html", "cadastroDoacao.html"),
+    path.join(__dirname, "../../public/html", "views", "cadastroDoacao.html"),
   );
 });
 
@@ -30,7 +30,7 @@ donationRouter.post("/addDonation", async (req: Request, res: Response) => {
 // Rota para buscar a lista de doações
 donationRouter.get("/doacoes", (req: Request, res: Response) => {
   res.sendFile(
-    path.join(__dirname, "../../public", "html", "listaDoacoes.html"),
+    path.join(__dirname, "../../public/html", "views", "listaDoacoes.html"),
   );
 });
 
@@ -47,7 +47,7 @@ donationRouter.get("/api/doacoes", async (req: Request, res: Response) => {
 // Rota para exibir a página de detalhes da doação
 donationRouter.get("/doacoes/:id", (req: Request, res: Response) => {
   res.sendFile(
-    path.join(__dirname, "../../public", "html", "detalheDoacao.html"),
+    path.join(__dirname, "../../public/html", "views", "detalheDoacao.html"),
   );
 });
 
