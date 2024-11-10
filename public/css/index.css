@@ -7,6 +7,16 @@
   font-family: Open-sans, sans-serif;
 }
 
+.navbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Mantém a navbar acima dos outros elementos */
+}
+
+
+
 body {
   background-color: #181a1e;
   color: var(--cor-escuro);
@@ -87,6 +97,71 @@ aside .sidebar a:hover span {
   transition: 0.4s ease;
 }
 
+.hamburger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 1rem;
+  width: 100%;
+  font-size: 2rem;
+  color: var(--cor-helps);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Botão de Menu com Título */
+.hamburger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 2rem;
+  color: var(--cor-helps);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+}
+
+.hamburger .title {
+  font-size: 1.2rem;
+  color: var(--cor-escuro);
+  font-weight: bold;
+  margin-left: 0.5rem;
+  transition: opacity 0.3s ease;
+}
+
+/* Ocultar o título no modo condensado */
+aside.condensed .hamburger .title {
+  display: none;
+}
+
+/* Ajustes na sidebar no modo condensado */
+aside.condensed .sidebar {
+  width: 4rem;
+  align-items: center;
+}
+
+aside.condensed .sidebar a h3 {
+  display: none;
+}
+
+aside.condensed .sidebar a {
+  justify-content: center;
+  margin-left: 0;
+}
+
+aside.condensed .sidebar a span {
+  font-size: 1.8rem;
+}
+
+/* Exibir o botão no modo mobile */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+}
 .container-parceiros {
   display: flex;
   flex-direction: column;

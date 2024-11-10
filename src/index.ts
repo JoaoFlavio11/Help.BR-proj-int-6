@@ -1,11 +1,11 @@
-// index.ts
 import express from "express";
 import { config } from "dotenv";
 import path from "path";
 import userRouter from "./routers/userRoutes";
 import pageRouter from "./routers/pageRoutes";
 import donationRouter from "./routers/donationRoutes";
-import authRouter from "./routers/authRouter";
+import authRouter from "./routers/authRoutes";
+import donorRouter from "./routers/donorRoutes";
 import { connectToMongoose } from "./database/mongoose";
 import { MongoClient } from "./database/mongo";
 
@@ -24,9 +24,10 @@ const main = async () => {
   app.use("/users", userRouter);
   app.use("/", donationRouter);
   app.use("/", authRouter);
+  app.use("/", donorRouter); // Donor routes
 
   const port = process.env.PORT || 3000;
-  app.listen(port, () => console.log(`Listening on http://localhost:${port}/`));
+  app.listen(port, () => console.log(`Listening on http://localhost:${port}/login`));
 };
 
 main();
