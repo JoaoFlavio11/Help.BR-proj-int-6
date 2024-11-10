@@ -1,4 +1,4 @@
-// models/donationSchema.ts
+// models/donation.ts
 import mongoose from "mongoose";
 
 const donationSchema = new mongoose.Schema({

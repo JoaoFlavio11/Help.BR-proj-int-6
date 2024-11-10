@@ -11,18 +11,56 @@
     <title>Doações disponíveis</title>
   </head>
   <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Help.Br</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link btn botao-padrao" href="#">Login/Cadastro</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn botao-padrao" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    
     <!-- The sidebar -->
     <aside>
-      <!--Sidebar-->
       <div class="sidebar">
+        <!-- Botão de Menu com Título -->
+        <button id="menuToggle" class="hamburger">
+          <span class="material-symbols-outlined">menu</span>
+          <span class="title">Help.BR</span>
+        </button>
+
         <a href="http://localhost:3000/">
           <span class="material-symbols-outlined">grid_view</span>
           <h3><b>Página Inicial</b></h3>
         </a>
 
         <a href="http://localhost:3000/doacoes">
-          <span class="material-symbols-outlined"> insert_chart </span>
-          <h3><b>Doacoes disponíveis</b></h3>
+          <span class="material-symbols-outlined">insert_chart</span>
+          <h3><b>Doações disponíveis</b></h3>
         </a>
 
         <a href="http://localhost:3000/cadastroDoacao">
@@ -85,6 +123,6 @@
         </form>
       </div>
     </div>
-
+    <script src="../../js/effects.js"></script>
   </body>
 </html>
