@@ -1,4 +1,3 @@
- 
 /* eslint-disable no-undef */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 function onChangeEmail() {
@@ -12,15 +11,32 @@ function onChangePassword() {
 } 
 
 function login(){
-    window.location.href = "http://localhost:3000/";
+    firebase.auth().signInWithEmailAndPassword(
+        form.email().value, form.password().value
+    ).then(response => {
+        hideLoading();
+        window.location.href = "http://localhost:3000/";
+    }).catch(error => {
+        alert(error.code)
+        console.log('error', error);
+    });
 }
 
 function register(){
-    window.location.href = "http://localhost:3000/register";
+    showLoading();
+    //window.location.href = "http://localhost:3000/register";
 }
 
 function authPage(){
     window.location.href = "http://localhost:3000/login";
+}
+//minuto 10.24, video 10
+
+function getErrorMessage(error){
+    if (error.code == "auth/user not found") {
+        return "Usuário não encontrado"
+    }
+    return error.message;
 }
 
 function toggleEmailErrors() {
