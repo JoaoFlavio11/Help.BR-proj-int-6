@@ -15,11 +15,13 @@
   z-index: 1000; /* Mantém a navbar acima dos outros elementos */
 }
 
-
-
 body {
-  background-color: #181a1e;
+  background-color: var(--cor-background);
   color: var(--cor-escuro);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .title {
@@ -36,7 +38,7 @@ body {
 }
 
 .conteudo {
-  background-color: white;
+  background-color: var(--cor-texto);
   margin-top: 5%;
   margin-left: 20%;
   margin-right: 20%;
@@ -60,8 +62,8 @@ aside .sidebar {
 }
 
 aside h3 {
-  font-weight: 400;
-  font-size: 0.87rem;
+  font-weight: var(--h3-font-weigth-aside);
+  font-size: var(--h3-font-size-aside);
 }
 
 aside .sidebar a {
@@ -192,15 +194,6 @@ aside.condensed .sidebar a span {
   border-radius: 10px;
 }
 
-body {
-  background-color: #181a1e;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
 .container-donation, .form-donation {
   margin-top: 3.8rem;
   width: calc(100% - 45rem); /* Ajuste para evitar sobreposição com a sidebar */
@@ -226,8 +219,8 @@ body {
   border: 1px solid #ddd;
   padding: 20px;
   border-radius: var(--border-radius-cartao);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
+  box-shadow: var(--box-shadow-donation);
+  transition: var(--transiotion-ease);
   overflow: hidden;
 }
 
@@ -235,7 +228,7 @@ body {
   transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
   background-color: var(--cor-helps2);
   border: 2px solid var(--cor-help-verde);
-  transition: transform 0.3s ease;
+  transition: var(--transiotion-ease);
 }
 
 .doacao-card h2 {
@@ -244,7 +237,7 @@ body {
 }
 
 .doacao-card p {
-  font-size: 1em;
+  font-size: var(--font-size1);
   line-height: 1.4;
 }
 
@@ -255,7 +248,7 @@ body {
   right: 20px;
   padding: 10px 15px;
   background-color: var(--cor-help-dark2);
-  color: #fff;
+  color: var(--cor-texto);
   border: none;
   border-radius: var(--border-radius-cartao);
   cursor: pointer;
@@ -286,7 +279,7 @@ body {
   text-align: center;
   font-size: 1.8em;
   margin-bottom: 20px;
-  color: #fff;
+  color: var(--cor-texto);
 }
 
 .form-field {
@@ -298,7 +291,7 @@ body {
 
 .form-field label {
   margin-bottom: 5px;
-  font-size: 1em;
+  font-size: var(--font-size1);
   width: -webkit-fill-available;
 }
 
@@ -309,7 +302,7 @@ body {
   border-radius: 4px;
   border: 1px solid #ccc;
   background-color: #f5f5f5;
-  font-size: 1em;
+  font-size: var(--font-size1);
 }
 
 .form-field input:focus,
@@ -332,7 +325,7 @@ body {
   color: #282c34;
   border: none;
   border-radius: 4px;
-  font-size: 1em;
+  font-size: var(--font-size1);
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -360,7 +353,7 @@ body {
 }
 
 .detalhes-container p {
-  font-size: 1em;
+  font-size: var(--font-size1);
   color: var(--cor-texto);
   margin: 5px 0;
 }
@@ -369,7 +362,7 @@ body {
   margin-top: 2rem;
   padding: 20px;
   background-color: #282c34;
-  color: #fff;
+  color: var(--cor-texto);
   border-radius: 8px;
   width: 100%;
   max-width: 600px;
@@ -380,7 +373,7 @@ body {
 .details-title {
   text-align: center;
   font-size: 1.6em;
-  color: #fff;
+  color: var(--cor-texto);
   margin-bottom: 20px;
 }
 
@@ -388,11 +381,11 @@ body {
   margin-bottom: 15px;
   display: flex;
   flex-direction: column;
-  color: #fff;
+  color: var(--cor-texto);
 }
 
 .form-donation-details .form-field label {
-  font-size: 1em;
+  font-size: var(--font-size1);
   margin-bottom: 5px;
 }
 
@@ -402,7 +395,7 @@ body {
   border-radius: 4px;
   border: 1px solid #ccc;
   background-color: #f5f5f5;
-  font-size: 1em;
+  font-size: var(--font-size1);
 }
 
 .form-donation-details .form-field input:focus {
@@ -420,10 +413,10 @@ body {
   padding: 10px 20px;
   width: 100%;
   background-color: var(--cor-help-verde);
-  color: #282c34;
+  color: var(--cor-branco2);
   border: none;
   border-radius: 4px;
-  font-size: 1em;
+  font-size: var(--font-size1);
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
