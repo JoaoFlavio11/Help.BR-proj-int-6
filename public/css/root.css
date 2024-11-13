@@ -37,4 +37,13 @@
   --padding-error: 0.2rem;
 
   --box-shadow: 0 2rem 3rem var(--cor-claro);
+  --box-shadow-donation: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+  --transition-ease: transform 0.3s ease;
+
+  --h3-font-weigth-aside: 400;
+
+  --font-size1: 1em;
+  --h3-font-size-aside: 0.87rem;
 }
+
