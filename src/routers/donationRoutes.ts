@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import express, { Router, Request, Response } from "express";
 import path from "path";
 import Donation from "../models/donations";
@@ -66,32 +67,31 @@ donationRouter.get("/doacoes/:id", (req: Request, res: Response) => {
   );
 });
 
-// Rota POST para processar a confirmação de doação
-donationRouter.post(
-  "/doacoes/:id/confirmedDonation",
-  async (req: Request, res: Response): Promise<Response> => {
-    const { id } = req.params;
+// Rota para processar os dados do formulário de doação
+donationRouter.post("/doacoes/:id", async (req: Request, res: Response) => {
+  const mongoCreateDonorRepository = new MongoCreateDonorRepository();
+  const createDonorController = new CreateDonorController(mongoCreateDonorRepository);
 
-    if (!ObjectId.isValid(id)) {
-      return res.status(400).json({ message: "ID inválido" });
-    }
+  const { CPF, email, name, address } = req.body;
 
-    // Controle de criação de doador
-    const mongoCreateDonorRepository = new MongoCreateDonorRepository();
-    const createDonorController = new CreateDonorController(mongoCreateDonorRepository);
+  // Formata os dados para o padrão esperado pelo controller
+  const donorData = {
+    donorCpf: CPF,
+    donorEmail: email,
+    donorName: name,
+    donorLocation: address,
+  };
 
-    const { statusCode } = await createDonorController.handle({
-      body: req.body,
-    });
+  // Chama o controller para processar o cadastro
+  const { statusCode, body } = await createDonorController.handle({ body: donorData });
 
-    if (statusCode === 201) {
-      // Redireciona para a própria página de detalhes
-      return res.redirect(`/doacoes/${id}`);
-    } else {
-      return res.status(statusCode).send("Erro ao confirmar a doação.");
-    }
+  if (statusCode === 201) {
+    // Redireciona para uma página de confirmação de doação
+    res.redirect("/confirmacaoDoacao");
+  } else {
+    res.status(statusCode).send("Erro ao cadastrar doador.");
   }
-);
+});
 
 
 // Rota para buscar uma doação específica como JSON
