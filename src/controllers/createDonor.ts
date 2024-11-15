@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 // controllers/createDonor.ts
 import { MongoCreateDonorRepository } from "../repositories/mongo-createDonor";
 
@@ -6,16 +7,18 @@ interface DonorBody {
     donorEmail: string;
     donorName: string;
     donorLocation: string;
+    donorPhone: string;
+
+    donationDate: Date;
+    donorNotes?: string;
 }
 
 export class CreateDonorController {
     constructor(private createDonorRepository: MongoCreateDonorRepository) {}
 
     async handle({ body }: { body: DonorBody }) {
-        // Validação de dados
-        const { donorCpf, donorEmail, donorName, donorLocation } = body;
-        if (!donorCpf || !donorEmail || !donorName || !donorLocation) {
-            console.error("Dados incompletos no corpo da requisição", body);
+        const { donorCpf, donorEmail, donorName, donorLocation, donorPhone, donationDate, donorNotes } = body;
+        if (!donorCpf || !donorEmail || !donorName || !donorLocation || !donorPhone || !donationDate) {
             return { body: "Dados incompletos no corpo da requisição", statusCode: 400 };
         }
 
