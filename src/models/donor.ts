@@ -6,12 +6,12 @@ const donorSchema = new mongoose.Schema({
     donorEmail: { type: String, required: true },
     donorName: { type: String, required: true },
     donorLocation: { type: String, required: true },
-    donationId: { type: mongoose.Schema.Types.ObjectId, ref: "Donation" }, // Adicione donationId se necessário
-  });
+    donorPhone: { type: String, required: true },
+    donationDate: { type: Date, required: true },
+    donorNotes: { type: String },
+    donationId: { type: mongoose.Schema.Types.ObjectId, ref: "Donation" },
+});
 
 const DonorData = mongoose.model("DonorData", donorSchema);
 
 export default DonorData;
-
-
-  

@@ -6,6 +6,9 @@ interface DonorBody {
     donorEmail: string;
     donorName: string;
     donorLocation: string;
+    donorPhone: string;
+    donationDate: Date;
+    donorNotes?: string;
 }
 
 export class MongoCreateDonorRepository {
@@ -15,7 +18,7 @@ export class MongoCreateDonorRepository {
             return await donor.save();
         } catch (error) {
             console.error("Erro ao salvar doador no banco de dados:", error);
-            throw error; // Lançar erro para ser capturado pelo controlador
+            throw error;
         }
     }
 }

@@ -16,4 +16,10 @@ authRouter.get("/register", (req: Request, res: Response) => {
     );
 });
 
+authRouter.get("/perfil", (req: Request, res: Response) => {
+    res.sendFile(
+        path.join(__dirname, "../../public/html", "secure", "profile.html")
+    );
+});
+
 export default authRouter;

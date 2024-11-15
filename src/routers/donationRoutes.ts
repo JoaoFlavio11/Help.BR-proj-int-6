@@ -72,27 +72,26 @@ donationRouter.post("/doacoes/:id", async (req: Request, res: Response) => {
   const mongoCreateDonorRepository = new MongoCreateDonorRepository();
   const createDonorController = new CreateDonorController(mongoCreateDonorRepository);
 
-  const { CPF, email, name, address } = req.body;
+  const { CPF, email, name, address, phone, donationDate, notes } = req.body;
 
-  // Formata os dados para o padrão esperado pelo controller
   const donorData = {
     donorCpf: CPF,
     donorEmail: email,
     donorName: name,
     donorLocation: address,
+    donorPhone: phone,
+    donationDate: new Date(donationDate),
+    donorNotes: notes,
   };
 
-  // Chama o controller para processar o cadastro
   const { statusCode, body } = await createDonorController.handle({ body: donorData });
 
   if (statusCode === 201) {
-    // Redireciona para uma página de confirmação de doação
     res.redirect("/confirmacaoDoacao");
   } else {
     res.status(statusCode).send("Erro ao cadastrar doador.");
   }
 });
-
 
 // Rota para buscar uma doação específica como JSON
 donationRouter.get("/api/doacoes/:id", async (req: Request, res: Response) => {
