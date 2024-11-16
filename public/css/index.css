@@ -291,6 +291,7 @@ aside.condensed .sidebar a span {
 
 .form-field label {
   margin-bottom: 5px;
+  color: var(--cor-texto);
   font-size: var(--font-size1);
   width: -webkit-fill-available;
 }
@@ -385,6 +386,7 @@ aside.condensed .sidebar a span {
 }
 
 .form-donation-details .form-field label {
+  color: var(--cor-texto);
   font-size: var(--font-size1);
   margin-bottom: 5px;
 }
