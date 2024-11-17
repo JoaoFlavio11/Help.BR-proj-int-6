@@ -1,7 +1,6 @@
 /* eslint-disable no-undef */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 function showLoading() {
-    alert('loading');
     const div = document.createElement("div");
     div.classList.add("loading", "centralize");
     document.body.appendChild(div);
@@ -12,10 +11,12 @@ function showLoading() {
     div.appendChild(label);
 
     document.body.appendChild(div);
+
+    setTimeout(()=> hideLoading(), 2000);
 }
 
 function hideLoading() {
-   const loadings = document.getElementsByClassName("loading");
+   const loadings = document.getElementsByClassName("loading ");
    if( loadings.length ){
     loadings[0].remove();
    }
