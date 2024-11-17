@@ -3,75 +3,96 @@
 function onChangeEmail() {
     toggleButtonsDisable();
     toggleEmailErrors();
-}
-
-function onChangePassword() {
+  }
+  
+  function onChangePassword() {
     toggleButtonsDisable();
     togglePasswordErrors();
-} 
-
-function login(){
-    firebase.auth().signInWithEmailAndPassword(
-        form.email().value, form.password().value
-    ).then(response => {
+  }
+  
+  function login() {
+    showLoading();
+    const email = form.email().value;
+    const password = form.password().value;
+  
+    firebase.auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(() => {
         hideLoading();
         window.location.href = "http://localhost:3000/";
-    }).catch(error => {
-        alert(error.code)
-        console.log('error', error);
-    });
-}
-
-function register(){
+      })
+      .catch((error) => {
+        hideLoading();
+        alert(getErrorMessage(error));
+        console.error('Error:', error);
+      });
+  }
+  
+  function register() {
     showLoading();
-    //window.location.href = "http://localhost:3000/register";
-}
-
-function authPage(){
-    window.location.href = "http://localhost:3000/login";
-}
-//minuto 10.24, video 10
-
-function getErrorMessage(error){
-    if (error.code == "auth/user not found") {
-        return "Usuário não encontrado"
+    window.location.href = "http://localhost:3000/register";
+  }
+  
+  function recoverPassword() {
+    showLoading();
+    const email = form.email().value;
+  
+    firebase.auth()
+      .sendPasswordResetEmail(email)
+      .then(() => {
+        hideLoading();
+        alert('E-mail de recuperação enviado com sucesso!');
+      })
+      .catch((error) => {
+        hideLoading();
+        alert(getErrorMessage(error));
+      });
+  }
+  
+  function getErrorMessage(error) {
+    if (error.code === "auth/invalid-credential") {
+      return "Credenciais de login inválidas";
+    }
+    if(error.code === "auth/wrong-password"){
+        return "Senha inválida"
     }
     return error.message;
-}
-
-function toggleEmailErrors() {
+  }
+  
+  function toggleEmailErrors() {
     const email = form.email().value;
     form.emailRequiredError().style.display = email ? "none" : "block";
-    
     form.emailInvalidError().style.display = validateEmail(email) ? "none" : "block";
-}
-
-function togglePasswordErrors() {
+  }
+  
+  function togglePasswordErrors() {
     const password = form.password().value;
     form.passwordRequiredError().style.display = password ? "none" : "block";
-}
-
-function toggleButtonsDisable() {
+  }
+  
+  function toggleButtonsDisable() {
     const emailValid = isEmailValid();
     form.recoverPasswordButton().disabled = !emailValid;
-
+  
     const passwordValid = isPasswordValid();
     form.loginButton().disabled = !emailValid || !passwordValid;
-}
-
-function isEmailValid() {
+  }
+  
+  function isEmailValid() {
     const email = form.email().value;
-    if (!email) {
-        return false;
-    }
-    return validateEmail(email);
-}
-
-function isPasswordValid() {
-    return form.password().value ? true : false;
-}
-
-const form = {
+    return email && validateEmail(email);
+  }
+  
+  function isPasswordValid() {
+    return !!form.password().value;
+  }
+  
+  function validateEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+  
+  const form = {
     email: () => document.getElementById("email"),
     emailInvalidError: () => document.getElementById("email-invalid-error"),
     emailRequiredError: () => document.getElementById("email-required-error"),
@@ -79,4 +100,5 @@ const form = {
     password: () => document.getElementById("password"),
     passwordRequiredError: () => document.getElementById("password-required-error"),
     recoverPasswordButton: () => document.getElementById("recover-password-button"),
-} 
+  };
+  
