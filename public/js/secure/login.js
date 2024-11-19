@@ -51,19 +51,33 @@ function recoverPassword() {
     });
 }
 
-function authPage() {
-  showLoading();
-  window.location.href = "http://localhost:3000/login";
-}
-
-function getErrorMessage(error) {
-  if (error.code === "auth/invalid-credential") {
-    return "Credenciais de login inválidas";
-  }
-  if (error.code === "auth/wrong-password") {
-    return "Senha inválida";
-  }
-  return error.message;
+function getErrorMessage(error){
+    switch(error.code){
+        case 'auth/invalid-email':
+            return 'E-mail inválido';
+        case 'auth/wrong-password':
+            return 'Senha incorreta';
+        case 'auth/missing-password':
+            return 'Campo de senha vazio';
+        case 'auth/missing-email':
+            return 'Campo de email vazio';
+        case 'auth/user-not-found':
+            return 'Usuário não encontrado';
+        case 'auth/user-disabled':
+            return 'Usuário desabilitado';
+        case 'auth/invalid-credential':
+            return 'Credenciais inválidas';
+        case 'auth/operation-not-allowed':
+            return 'Operação não permitida';
+        case 'auth/email-already-in-use':
+            return 'este E-mail já está em uso';
+        case 'auth/invalid-verification-code':
+            return 'Código de verificação inválido';
+        case 'auth/expired-action-code':
+            return 'Código de verificação expirado';
+        default:
+            return 'Erro desconhecido';
+    }
 }
 
 function toggleEmailErrors() {
@@ -94,11 +108,6 @@ function isEmailValid() {
 
 function isPasswordValid() {
   return !!form.password().value;
-}
-
-function validateEmail(email) {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
 }
 
 const form = {
