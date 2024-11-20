@@ -1,5 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-undef */
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    window.location.href = "http://localhost:3000/";
+  }
+});
+
 function onChangeEmail() {
   const email = form.email().value;
 
@@ -59,52 +65,56 @@ function isFormValid() {
   return true;
 }
 
-function register(){
-    const email = form.email().value;
-    const password = form.password().value;
+function register() {
+  const email = form.email().value;
+  const password = form.password().value;
 
-    showLoading();
-    firebase.auth().createUserWithEmailAndPassword(email, password).then(() => {
-        hideLoading();
-        window.location.href = "http://localhost:3000/login";
-    }).catch(error => {
-        hideLoading();
-        alert(getErrorMessage(error));
+  showLoading();
+  firebase
+    .auth()
+    .createUserWithEmailAndPassword(email, password)
+    .then(() => {
+      hideLoading();
+      window.location.href = "http://localhost:3000/login";
     })
+    .catch((error) => {
+      hideLoading();
+      alert(getErrorMessage(error));
+    });
 }
 
 function authPage() {
-    showLoading();
-    window.location.href = "http://localhost:3000/login";
-  }
+  showLoading();
+  window.location.href = "http://localhost:3000/login";
+}
 
-function getErrorMessage(error){
-    switch(error.code){
-        case 'auth/invalid-email':
-            return 'E-mail inválido';
-        case 'auth/wrong-password':
-            return 'Senha incorreta';
-        case 'auth/missing-password':
-            return 'Campo de senha vazio';
-        case 'auth/missing-email':
-            return 'Campo de email vazio';
-        case 'auth/user-not-found':
-            return 'Usuário não encontrado';
-        case 'auth/user-disabled':
-            return 'Usuário desabilitado';
-        case 'auth/invalid-credential':
-            return 'Credenciais inválidas';
-        case 'auth/operation-not-allowed':
-            return 'Operação não permitida';
-        case 'auth/email-already-in-use':
-            return 'este E-mail já está em uso';
-        case 'auth/invalid-verification-code':
-            return 'Código de verificação inválido';
-        case 'auth/expired-action-code':
-            return 'Código de verificação expirado';
-        default:
-            return 'Erro desconhecido';
-    }
+function getErrorMessage(error) {
+  switch (error.code) {
+    case "auth/invalid-email":
+      return "E-mail inválido";
+    case "auth/wrong-password":
+      return "Senha incorreta";
+    case "auth/missing-password":
+      return "Campo de senha vazio";
+    case "auth/missing-email":
+      return "Campo de email vazio";
+    case "auth/user-not-found":
+      return "Usuário não encontrado";
+    case "auth/user-disabled":
+      return "Usuário desabilitado";
+    case "auth/invalid-credential":
+      return "Credenciais inválidas";
+    case "auth/operation-not-allowed":
+      return "Operação não permitida";
+    case "auth/email-already-in-use":
+      return "Este e-mail já está em uso";
+    case "auth/invalid-verification-code":
+      return "Código de verificação inválido";
+    case "auth/expired-action-code":
+      return "Código de verificação expirado";
+    default:
+      return "Erro desconhecido";
+  }
 }
 
 const form = {

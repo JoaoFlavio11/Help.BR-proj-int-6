@@ -1,5 +1,11 @@
 /* eslint-disable no-undef */
 /* eslint-disable @typescript-eslint/no-unused-vars */
+firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      window.location.href = "http://localhost:3000/";
+    }
+  });
+  
 function onChangeEmail() {
   toggleButtonsDisable();
   toggleEmailErrors();
