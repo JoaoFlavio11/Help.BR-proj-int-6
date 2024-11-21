@@ -57,7 +57,7 @@
   
           <a href="http://localhost:3000/parceiros">
             <span class="material-symbols-outlined">settings_accessibility</span>
-            <h3><b>Empresas parceiras</b></h3>
+            <h3><b>Patrocinadores e Parceiros</b></h3>
           </a>
   
           <a href="http://localhost:3000/login">
@@ -72,37 +72,32 @@
   <div class="form-donation ">
     <div class="top">
           <h1 class="title">Seja nosso Patrocinador!</h1>
-          <form id="SponsorForm" action="/addSponsor" method="POST">
+          <form id="SponsorForm" action="/colab/sponsor" method="POST">
             <div class="form-field">
-              <label for="SponsorName">Nome da Empresa:</label>
-              <input type="text" name="SponsorName" id="SponsorName" required>
+              <label for="sponsorName">Nome da Empresa:</label>
+              <input type="text" name="sponsorName" id="sponsorName" required>
             </div>
-
             <div class="form-field">
-              <label for="SponsorEmail">E-mail corporativo:</label>
-              <input type="text" name="SponsorEmail" id="SponsorEmail" required>
+              <label for="sponsorEmail">E-mail corporativo:</label>
+              <input type="email" name="sponsorEmail" id="sponsorEmail" required>
             </div>
-
             <div class="form-field">
-              <label for="SponsorPhone">Telefone corporativo:</label>
-              <input type="text" name="SponsorPhone" id="SponsorPhone" required>
+              <label for="sponsorPhone">Telefone corporativo:</label>
+              <input type="text" name="sponsorPhone" id="sponsorPhone" required>
             </div>
-
             <div class="form-field">
-              <label for="SponsorCpf">CNPJ:</label>
-              <input type="text" name="SponsorCpf" id="SponsorCpf" required>
+              <label for="sponsorCnpj">CNPJ:</label>
+              <input type="text" name="sponsorCnpj" id="sponsorCnpj" required>
             </div>
-
             <div class="form-field">
-              <label for="SponsorLaw">Nome do responsável jurídico:</label>
-              <input type="text" name="SponsorLaw" id="SponsorLaw" required>
+              <label for="sponsorLaw">Nome do responsável jurídico:</label>
+              <input type="text" name="sponsorLaw" id="sponsorLaw" required>
             </div>
-            
-
             <div class="btn-box">
               <button class="solid" type="submit">Cadastrar Patrocinador</button>
             </div>
           </form>
+          
     </div>
   </div>
 

@@ -5,6 +5,7 @@ import userRouter from "./routers/userRoutes";
 import pageRouter from "./routers/pageRoutes";
 import donationRouter from "./routers/donationRoutes";
 import authRouter from "./routers/authRoutes";
+import colabRouter from "./routers/colabRoutes";
 import { connectToMongoose } from "./database/mongoose";
 import { MongoClient } from "./database/mongo";
 
@@ -24,6 +25,7 @@ const main = async () => {
   app.use("/users", userRouter);
   app.use("/", donationRouter);
   app.use("/", authRouter);
+  app.use("/colab", colabRouter);
 
   const port = process.env.PORT || 3000;
   app.listen(port, () => console.log(`Listening on http://localhost:${port}/login`));
