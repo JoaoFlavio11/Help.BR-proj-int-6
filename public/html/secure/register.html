@@ -13,25 +13,13 @@
       <div class="form-field">
         <h3>Cadastre-se!</h3>
         <div><label>Email:</label></div>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          placeholder="seu@email.com"
-          onchange="onChangeEmail()"
-        />
+        <input type="email" name="email" id="email" placeholder="seu@email.com" onchange="onChangeEmail()"/>
         <div class="error" id="email-required-error">Email é obrigatório!</div>
         <div class="error" id="email-invalid-error">Email é inválido!</div>
       </div>
       <div class="form-field">
         <div><label>Senha:</label></div>
-        <input
-          type="password"
-          name="password"
-          id="password"
-          placeholder="Senha"
-          onchange="onChangePassword()"
-        />
+        <input type="password" name="password" id="password" placeholder="Senha" onchange="onChangePassword()"/>
         <div class="error" id="password-required-error">
           Senha é obrigatória!
         </div>
@@ -73,22 +61,22 @@
   <script src="../../js/secure/validations.js"></script>
   <script src="../../js/secure/register.js"></script>
 
-    <!-- Scripts externos do Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+  <!-- Scripts externos do Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
 
-    <!-- Inicialização do Firebase -->
-    <script>
-      const firebaseConfig = {
-        apiKey: "AIzaSyAFD4mJ_OVepum5t7qVbRe25xAb8ui20gE",
-        authDomain: "help-br.firebaseapp.com",
-        projectId: "help-br",
-        storageBucket: "help-br.firebasestorage.app",
-        messagingSenderId: "79552793844",
-        appId: "1:79552793844:web:8fa51ea1f19c79865ba2a1",
-      };
+  <!-- Inicialização do Firebase -->
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyAFD4mJ_OVepum5t7qVbRe25xAb8ui20gE",
+      authDomain: "help-br.firebaseapp.com",
+      projectId: "help-br",
+      storageBucket: "help-br.firebasestorage.app",
+      messagingSenderId: "79552793844",
+      appId: "1:79552793844:web:8fa51ea1f19c79865ba2a1",
+    };
 
-      // Inicializar o Firebase
-      firebase.initializeApp(firebaseConfig);
-    </script>
+    // Inicializar o Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
 </html>

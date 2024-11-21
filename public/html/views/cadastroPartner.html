@@ -57,7 +57,7 @@
   
           <a href="http://localhost:3000/parceiros">
             <span class="material-symbols-outlined">settings_accessibility</span>
-            <h3><b>Empresas parceiras</b></h3>
+            <h3><b>Patrocinadores e Parceiros</b></h3>
           </a>
   
           <a href="http://localhost:3000/login">
@@ -72,37 +72,33 @@
   <div class="form-donation ">
     <div class="top">
           <h1 class="title">Seja nosso Parceiro!</h1>
-          <form id="partnerForm" action="/addPartner" method="POST">
+          <form id="partnerForm" action="/colab/partner" method="POST">
             <div class="form-field">
               <label for="partnerName">Nome:</label>
               <input type="text" name="partnerName" id="partnerName" required>
             </div>
-
             <div class="form-field">
               <label for="partnerEmail">E-mail:</label>
               <input type="text" name="partnerEmail" id="partnerEmail" required>
             </div>
-
             <div class="form-field">
               <label for="partnerPhone">Telefone:</label>
               <input type="text" name="partnerPhone" id="partnerPhone" required>
             </div>
-
             <div class="form-field">
               <label for="partnerCpf">CPF:</label>
               <input type="text" name="partnerCpf" id="partnerCpf" required>
             </div>
-
             <div class="form-field">
               <label for="partnerAge">Idade:</label>
               <input type="number" name="partnerAge" id="partnerAge" min="10" required>
             </div>
-            
-
             <div class="btn-box">
               <button class="solid" type="submit">Cadastrar Parceiro</button>
             </div>
           </form>
+          
+          
     </div>
   </div>
 
