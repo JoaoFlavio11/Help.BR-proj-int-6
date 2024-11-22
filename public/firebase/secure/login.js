@@ -1,11 +1,11 @@
 /* eslint-disable no-undef */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-      window.location.href = "http://localhost:3000/";
-    }
-  });
-  
+  if (user) {
+    window.location.href = "http://localhost:3000/";
+  }
+});
+
 function onChangeEmail() {
   toggleButtonsDisable();
   toggleEmailErrors();
@@ -57,33 +57,33 @@ function recoverPassword() {
     });
 }
 
-function getErrorMessage(error){
-    switch(error.code){
-        case 'auth/invalid-email':
-            return 'E-mail inválido';
-        case 'auth/wrong-password':
-            return 'Senha incorreta';
-        case 'auth/missing-password':
-            return 'Campo de senha vazio';
-        case 'auth/missing-email':
-            return 'Campo de email vazio';
-        case 'auth/user-not-found':
-            return 'Usuário não encontrado';
-        case 'auth/user-disabled':
-            return 'Usuário desabilitado';
-        case 'auth/invalid-credential':
-            return 'Credenciais inválidas';
-        case 'auth/operation-not-allowed':
-            return 'Operação não permitida';
-        case 'auth/email-already-in-use':
-            return 'este E-mail já está em uso';
-        case 'auth/invalid-verification-code':
-            return 'Código de verificação inválido';
-        case 'auth/expired-action-code':
-            return 'Código de verificação expirado';
-        default:
-            return 'Erro desconhecido';
-    }
+function getErrorMessage(error) {
+  switch (error.code) {
+    case "auth/invalid-email":
+      return "E-mail inválido";
+    case "auth/wrong-password":
+      return "Senha incorreta";
+    case "auth/missing-password":
+      return "Campo de senha vazio";
+    case "auth/missing-email":
+      return "Campo de email vazio";
+    case "auth/user-not-found":
+      return "Usuário não encontrado";
+    case "auth/user-disabled":
+      return "Usuário desabilitado";
+    case "auth/invalid-credential":
+      return "Credenciais inválidas";
+    case "auth/operation-not-allowed":
+      return "Operação não permitida";
+    case "auth/email-already-in-use":
+      return "este E-mail já está em uso";
+    case "auth/invalid-verification-code":
+      return "Código de verificação inválido";
+    case "auth/expired-action-code":
+      return "Código de verificação expirado";
+    default:
+      return "Erro desconhecido";
+  }
 }
 
 function toggleEmailErrors() {

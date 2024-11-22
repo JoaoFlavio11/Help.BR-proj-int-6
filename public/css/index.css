@@ -1,10 +1,10 @@
 @import url(./root.css);
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
 
 * {
   margin: 0;
   padding: 0;
-  font-family: Open-sans, sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .navbar {
@@ -14,6 +14,8 @@
   left: 0;
   z-index: 1000; /* Mantém a navbar acima dos outros elementos */
 }
+
+
 
 body {
   background-color: var(--cor-background);
@@ -88,6 +90,11 @@ aside .sidebar a:last-child {
   position: absolute;
   bottom: 1rem;
   width: 100%;
+  color: var(--cor-helps2);
+}
+
+aside .sidebar a:last-child:hover {
+  color: var(--cor-helps2);
 }
 
 aside .sidebar a:hover {
@@ -194,7 +201,8 @@ aside.condensed .sidebar a span {
   border-radius: 10px;
 }
 
-.container-donation, .form-donation {
+.container-donation,
+.form-donation {
   margin-top: 3.8rem;
   width: calc(100% - 45rem); /* Ajuste para evitar sobreposição com a sidebar */
   margin-left: 260px; /* Distância da sidebar */
@@ -269,7 +277,7 @@ aside.condensed .sidebar a span {
   transform: translateY(0);
 }
 
-.form-donation .top{
+.form-donation .top {
   width: -webkit-fill-available;
   padding: var(--padding-1);
   margin: auto;
@@ -313,7 +321,7 @@ aside.condensed .sidebar a span {
   width: -webkit-fill-available;
 }
 
-input{
+input {
   width: -webkit-fill-available;
 }
 

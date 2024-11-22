@@ -83,7 +83,7 @@
         <h3><b>Patrocinadores e Parceiros</b></h3>
       </a>
 
-      <a href="http://localhost:3000/login">
+      <a onclick="logout()">
         <span class="material-symbols-outlined">logout</span>
         <h3><b>Sair</b></h3>
       </a>
@@ -94,22 +94,18 @@
   <!-- Page content -->
   <div class="content">
 
-    <div class="quem-somos">
-      <h2>Quem somos?</h2>
-      <p>
-        O Help.Br é uma plataforma criada para facilitar doações e conectar pessoas dispostas a ajudar com quem mais precisa. Nossa plataforma se destaca pela ampla diversidade de categorias de itens que podem ser doados, permitindo-nos alcançar e atender um número ainda maior de pessoas em diferentes necessidades.
-      </p>
-    </div>
-
-    <div class="objetivo">
-      <h2>Nosso objetivo:</h2>
-      <p>
-      O Help.Br tem como objetivo principal criar uma rede de solidariedade acessível e abrangente. Queremos tornar o ato de doar simples e prático, conectando quem deseja ajudar a quem precisa. Ao oferecer uma variedade de categorias para doações, visamos atender diferentes necessidades e alcançar o maior número de pessoas possível. Nossa missão é impactar positivamente a vida de comunidades vulneráveis em todo o Brasil, promovendo o apoio mútuo e o fortalecimento social por meio de uma plataforma intuitiva e segura.
-      </p>
-    </div>
+    
 
   </div>
-  <script src="../../js/effects.js"></script>  
+
+
+  <!-- Scripts externos do Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+  <script src="../../firebase/firebaseConfig.js"></script>
+  <script src="../../firebase/secure/auth-guard.js"></script>
+  <script src="../../js/effects.js"></script>
+   
 </body>
 
 </html>
