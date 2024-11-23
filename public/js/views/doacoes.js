@@ -19,7 +19,8 @@ document.addEventListener("DOMContentLoaded", async () => {
           <p>${doacao.donationDescription}</p>
           <p><strong>Tipo de Item:</strong> ${doacao.itemType}</p>
           <p><strong>Quantidade:</strong> ${doacao.quantity}</p>
-          <button class="donate-btn" onclick="window.location.href='/doacoes/${doacao._id}'"><b>Doar!</b></button>
+          <button class="donate-btn" onclick="window.location.href='http://localhost:3000/doacoes/${doacao._id}'"><b>Doar!</b></button>
+
         `;
 
         container.appendChild(card);
