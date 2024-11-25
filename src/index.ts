@@ -6,6 +6,7 @@ import pageRouter from "./routers/pageRoutes";
 import donationRouter from "./routers/donationRoutes";
 import authRouter from "./routers/authRoutes";
 import colabRouter from "./routers/colabRoutes";
+import locationRouter from "./routers/locationRoutes";
 import { connectToMongoose } from "./database/mongoose";
 import { MongoClient } from "./database/mongo";
 
@@ -26,6 +27,7 @@ const main = async () => {
   app.use("/", donationRouter);
   app.use("/", authRouter);
   app.use("/colab", colabRouter);
+  app.use("/location", locationRouter);
 
   
 

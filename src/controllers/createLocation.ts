@@ -21,7 +21,7 @@ export class CreateLocationController {
         try{
             const location = await this.createLocationRepository.createLocation(body);
             console.log('Localização cadastrada:', location);
-            return {body: location, statuscode:201};
+            return {body: location, statusCode:201};
         } catch (error) {
             console.error("Erro ao cadastrar localização:", error);
             return { body: "Erro ao cadastrar localização", statusCode: 500 };
