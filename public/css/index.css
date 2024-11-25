@@ -552,3 +552,20 @@ input {
   color: #fff;
   line-height: 2;
 }
+
+.container-cartoes-geral {
+  margin-left: 5%;
+}
+
+.container-cartoes1 {
+  background-color: #fff;
+  border-radius: var(--border-radius-1);
+  margin: 20px;
+  margin-left: auto;
+  padding: 10px;
+  width: 400px;
+}
+
+.texto-cartoes {
+  margin-top: 5px;
+}
