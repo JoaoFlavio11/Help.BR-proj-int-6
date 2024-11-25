@@ -12,7 +12,8 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000; /* Mantém a navbar acima dos outros elementos */
+  z-index: 1000;
+  /* Mantém a navbar acima dos outros elementos */
   background-color: var(--cor-branco);
 }
 
@@ -172,28 +173,47 @@ aside.condensed .sidebar a span {
     display: block;
   }
 }
+
 .container-parceiros {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #00bcd4; /* Cor de fundo semelhante ao da imagem */
+  background-color: #00bcd4;
+  /* Cor de fundo semelhante ao da imagem */
   padding: 20px;
   border-radius: 10px;
-  max-width: 600px; /* Ajuste a largura conforme necessário */
-  margin: 20px auto;
+  max-width: 700px;
+  width: 600px;
+  /* Ajuste a largura conforme necessário */
+
 }
 
 .container-parceiros h1 {
-  color: #333;
+  color: #FFF;
   margin-bottom: 20px;
   font-size: 2em;
 }
 
+.container-parceiros {
+  margin-top: 5.5rem;
+  width: calc(100% - 45rem);
+  /* Ajuste para evitar sobreposição com a sidebar */
+  margin-left: 260px;
+  /* Distância da sidebar */
+  padding: 20px;
+  background-color: var(--cor-branco);
+  border-radius: var(--border-radius-3);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+
 .empresa {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  background-color: #ffc107; /* Cor de fundo dos itens */
+  background-color: var(--cor-helps);
+  /* Cor de fundo dos itens */
   color: #333;
   font-weight: bold;
   width: 100%;
@@ -202,11 +222,21 @@ aside.condensed .sidebar a span {
   border-radius: 10px;
 }
 
+.empresa-icon {
+  display: flex;
+  margin-left: 45%;
+  height: 100px;
+  width: 100px;
+
+}
+
 .container-donation,
 .form-donation {
   margin-top: 3.8rem;
-  width: calc(100% - 45rem); /* Ajuste para evitar sobreposição com a sidebar */
-  margin-left: 260px; /* Distância da sidebar */
+  width: calc(100% - 45rem);
+  /* Ajuste para evitar sobreposição com a sidebar */
+  margin-left: 260px;
+  /* Distância da sidebar */
   padding: 20px;
   background-color: var(--cor-branco);
   border-radius: var(--border-radius-3);
@@ -217,7 +247,8 @@ aside.condensed .sidebar a span {
 
 .doacoes-lista {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Exibir 3 itens por linha */
+  grid-template-columns: repeat(3, 1fr);
+  /* Exibir 3 itens por linha */
   gap: 20px;
   width: 100%;
 }
@@ -234,7 +265,8 @@ aside.condensed .sidebar a span {
 }
 
 .doacao-card:hover {
-  transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+  transform: scale(1.05);
+  /* Efeito de zoom ao passar o mouse */
   background-color: var(--cor-helps2);
   border: 2px solid var(--cor-help-verde);
   transition: var(--transiotion-ease);
@@ -551,4 +583,26 @@ input {
   font-family: Open-sans, sans-serif;
   color: #fff;
   line-height: 2;
+}
+
+.container-cartoes-geral {
+  margin-left: 260px;
+  margin-top: 25px;
+}
+
+.container-cartoes-geral h2 {
+  color: #FFF;
+}
+
+.container-cartoes1 {
+  background-color: #fff;
+  border-radius: var(--border-radius-1);
+  margin-left: auto;
+  padding: 10px;
+  width: 650px;
+  margin-bottom: 15%;
+}
+
+.texto-cartoes {
+  margin-top: 5px;
 }
