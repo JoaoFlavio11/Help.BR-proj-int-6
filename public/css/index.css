@@ -85,6 +85,7 @@ aside .sidebar a {
 aside .sidebar a span {
   font-size: 1.6rem;
   transition: all 0.1s ease-in;
+  box-shadow: var(--box-shadow);
 }
 
 aside .sidebar a:last-child {
@@ -160,10 +161,30 @@ aside.condensed .sidebar a h3 {
 aside.condensed .sidebar a {
   justify-content: center;
   margin-left: 0;
+  position: relative;
+}
+
+aside.condensed .sidebar a:hover::after {
+  content: attr(title); /* Obtém o texto do atributo title */
+  position: absolute;
+  margin-left: 1rem;
+  font-weight: bold;
+  left: 100%; /* Ajusta para aparecer ao lado direito do ícone */
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--cor-help-light);
+  color: var(--cor-texto);
+  padding: 5px 10px;
+  border-radius: var(--border-radius-1);
+  white-space: nowrap;
+  font-size: var(--font-size1);
+  box-shadow: var(--box-shadow);
+  z-index: 10;
 }
 
 aside.condensed .sidebar a span {
   font-size: 1.8rem;
+  box-shadow: (var(--box-shadow));
 }
 
 /* Exibir o botão no modo mobile */
