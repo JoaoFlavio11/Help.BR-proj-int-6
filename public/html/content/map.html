@@ -1,15 +1,32 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css"/>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous"/>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
     <link rel="stylesheet" href="../../css/index.css" />
-    <title>Doações disponíveis</title>
+    <title>Mapa</title>
   </head>
+
   <body>
+    <!--Navbar-->
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Help.Br</a>
@@ -38,8 +55,8 @@
         </div>
       </div>
     </nav>
+    <!--Navbar end-->
 
-    
     <!-- The sidebar -->
     <aside>
       <div class="sidebar">
@@ -64,17 +81,26 @@
           <h3><b>Crie sua Doação!</b></h3>
         </a>
 
-        <a href="http://localhost:3000/parceiros" title="Patrocine nosso projeto">
+        <a
+          href="http://localhost:3000/parceiros"
+          title="Patrocine nosso projeto"
+        >
           <span class="material-symbols-outlined">settings_accessibility</span>
           <h3><b>Patrocine nosso projeto</b></h3>
         </a>
 
-        <a href="http://localhost:3000/colab/partner" title="Seja nosso parceiro">
+        <a
+          href="http://localhost:3000/colab/partner"
+          title="Seja nosso parceiro"
+        >
           <span class="material-symbols-outlined">person_raised_hand</span>
           <h3><b>Seja nosso parceiro</b></h3>
         </a>
 
-        <a href="http://localhost:3000/location/support" title="Pontos de apoio">
+        <a
+          href="http://localhost:3000/location/support"
+          title="Pontos de apoio"
+        >
           <span class="material-symbols-outlined">add_location_alt</span>
           <h3><b>Pontos de apoio</b></h3>
         </a>
@@ -87,53 +113,42 @@
     </aside>
     <!--Sidebar end-->
 
-
-    <div class="form-donation ">
-      <div class="top">
-        <h1 class="title">Inicie sua doação!</h1>
-        <form id="donationForm" action="/addDonation" method="POST">
-          <div class="form-field">
-            <label for="donationName">Nome da Doação:</label>
-            <input type="text" id="donationName" name="donationName" required />
-          </div>
-
-          <div class="form-field">
-            <label for="donationDescription">Descrição:</label>
-            <textarea
-              id="donationDescription"
-              name="donationDescription"
-              rows="4"
-              required
-            ></textarea>
-          </div>
-
-          <div class="form-field">
-            <label for="itemType">Tipo de Item:</label>
-            <input type="text" id="itemType" name="itemType" required />
-          </div>
-
-          <div class="form-field">
-            <label for="quantity">Quantidade:</label>
-            <input
-              type="number"
-              id="quantity"
-              name="quantity"
-              min="1"
-              required
-            />
-          </div>
-
-          <div class="btn-box">
-            <button class="solid" type="submit">Cadastrar Doação</button>
-          </div>
-        </form>
-      </div>
+    <!-- Mapa -->
+    <div class="container">
+      <h1>Localização dos Pontos de Apoio</h1>
+      <div
+        id="map"
+        style="height: 400px; width: 50rem; margin-top:5rem ; margin-left: 27.5rem; border: 1px solid #ddd"
+      ></div>
     </div>
-    <script src="../../js/effects.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
-    <script src="../../firebase/firebaseConfig.js"></script>
-    <script src="../../firebase/secure/auth-guard.js"></script>
+    <!-- Mapa end -->
 
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+      // Inicializar o mapa
+      const map = L.map("map").setView([-23.55052, -46.633308], 13); // Coordenadas de São Paulo como exemplo
+
+      // Adicionar camada de tiles do OpenStreetMap
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      }).addTo(map);
+
+      // Adicionar marcador de exemplo
+      L.marker([-23.55052, -46.633308])
+        .addTo(map)
+        .bindPopup("<b>Ponto de Apoio</b><br>Endereço exemplo.")
+        .openPopup();
+
+      // Adicionar mais pontos dinamicamente (substituir por API ou banco de dados)
+      const pontos = [
+        { lat: -23.551, lng: -46.634, popup: "Ponto 1: Descrição" },
+        { lat: -23.552, lng: -46.635, popup: "Ponto 2: Descrição" },
+      ];
+
+      pontos.forEach((ponto) => {
+        L.marker([ponto.lat, ponto.lng]).addTo(map).bindPopup(ponto.popup);
+      });
+    </script>
   </body>
 </html>

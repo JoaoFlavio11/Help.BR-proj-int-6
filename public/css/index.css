@@ -15,6 +15,9 @@
   z-index: 1000; /* Mantém a navbar acima dos outros elementos */
   background-color: var(--cor-branco);
 }
+.navbar-brand{
+  color: var(--cor-helps);
+}
 
 
 
@@ -234,6 +237,7 @@ aside.condensed .sidebar a span {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  display: flex;
 }
 
 .doacoes-lista {
@@ -243,7 +247,7 @@ aside.condensed .sidebar a span {
   width: 100%;
 }
 
-.doacao-card {
+.doacao-card, .apoio-card{
   background-color: #f9f9f9;
   color: #333;
   border: 1px solid #ddd;
@@ -254,19 +258,19 @@ aside.condensed .sidebar a span {
   overflow: hidden;
 }
 
-.doacao-card:hover {
+.doacao-card:hover, .apoio-card:hover {
   transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
   background-color: var(--cor-helps2);
   border: 2px solid var(--cor-help-verde);
   transition: var(--transiotion-ease);
 }
 
-.doacao-card h2 {
+.doacao-card, .apoio-card h2 {
   font-size: 1.5em;
   margin-bottom: 10px;
 }
 
-.doacao-card p {
+.doacao-card, .apoio-card p {
   font-size: var(--font-size1);
   line-height: 1.4;
 }
@@ -572,4 +576,66 @@ input {
   font-family: Open-sans, sans-serif;
   color: #fff;
   line-height: 2;
+}
+
+.container-cartoes-geral {
+  margin-left: 5%;
+}
+
+.container-cartoes1 {
+  background-color: #fff;
+  border-radius: var(--border-radius-1);
+  margin: 20px;
+  margin-left: auto;
+  padding: 10px;
+  width: 400px;
+}
+
+.texto-cartoes {
+  margin-top: 5px;
+}
+
+.container-donation {
+  margin-top: 3.8rem;
+  width: calc(100% - 45rem); /* Ajuste para evitar sobreposição com a sidebar */
+  margin-left: 260px; /* Distância da sidebar */
+  padding: 20px;
+  background-color: var(--cor-branco);
+  border-radius: var(--border-radius-3);
+  color: var(--cor-texto);
+}
+
+
+.container-donation h2 {
+  font-size: 1.8rem;
+  color: var(--cor-escuro);
+  text-align: center;
+  margin-bottom: 20px; /* Espaçamento abaixo do título */
+}
+
+.container-pontos {
+  display: flex;
+  flex-wrap: wrap; /* Permite que os cartões sejam ajustados automaticamente em múltiplas linhas, se necessário */
+  justify-content: center; /* Alinha os cartões horizontalmente */
+  gap: 20px; /* Espaçamento entre os cartões */
+}
+
+.apoio-card {
+  background-color: #f9f9f9;
+  color: #333;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: var(--border-radius-cartao);
+  box-shadow: var(--box-shadow-donation);
+  transition: var(--transiotion-ease);
+  overflow: hidden;
+  width: 300px; /* Largura fixa para os cartões */
+  text-align: center;
+}
+
+.apoio-card:hover {
+  transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+  background-color: var(--cor-helps2);
+  border: 2px solid var(--cor-help-verde);
+  transition: var(--transiotion-ease);
 }

@@ -42,8 +42,8 @@
   </nav>
   <!-- Navbar end -->
 
-  <!-- The sidebar -->
-  <aside>
+    <!-- The sidebar -->
+    <aside>
       <div class="sidebar">
         <!-- Botão de Menu com Título -->
         <button id="menuToggle" class="hamburger">
@@ -51,56 +51,84 @@
           <span class="title">Help.BR</span>
         </button>
 
-        <a href="http://localhost:3000/">
+        <a href="http://localhost:3000/" title="Página Inicial">
           <span class="material-symbols-outlined">grid_view</span>
           <h3><b>Página Inicial</b></h3>
         </a>
 
-        <a href="http://localhost:3000/doacoes">
+        <a href="http://localhost:3000/doacoes" title="Doações disponíveis">
           <span class="material-symbols-outlined">insert_chart</span>
           <h3><b>Doações disponíveis</b></h3>
         </a>
 
-        <a href="http://localhost:3000/cadastroDoacao">
+        <a href="http://localhost:3000/cadastroDoacao" title="Crie sua Doação!">
           <span class="material-symbols-outlined">heart_plus</span>
           <h3><b>Crie sua Doação!</b></h3>
         </a>
 
-        <a href="http://localhost:3000/parceiros">
+        <a href="http://localhost:3000/parceiros" title="Patrocine nosso projeto">
           <span class="material-symbols-outlined">settings_accessibility</span>
-          <h3><b>Patrocinadores e Parceiros</b></h3>
+          <h3><b>Patrocine nosso projeto</b></h3>
         </a>
 
-        <a href="http://localhost:3000/login">
-          <span class="material-symbols-outlined">logout</span>
+        <a href="http://localhost:3000/colab/partner" title="Seja nosso parceiro">
+          <span class="material-symbols-outlined">person_raised_hand</span>
+          <h3><b>Seja nosso parceiro</b></h3>
+        </a>
+
+        <a href="http://localhost:3000/location/support" title="Pontos de apoio">
+          <span class="material-symbols-outlined">add_location_alt</span>
+          <h3><b>Pontos de apoio</b></h3>
+        </a>
+
+        <a onclick="logout()" title="Sair">
+          <span class="material-symbols-outlined">exit_to_app</span>
           <h3><b>Sair</b></h3>
         </a>
       </div>
-  </aside>
-  <!--Sidebar end-->
+    </aside>
+    <!--Sidebar end-->
 
   <!-- botao -->
-  <div class="col-md-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Seja um Parceiro</h5>
-        <p class="card-text">
-          Cadastre-se como parceiro e ajude a transformar vidas.
-        </p>
+   <br>
+   <br>
+   <br>
+   <br>
+   <div class="container-cartoes-geral">
+    <div class="row">
+      <div class="container-cartoes1">
+        <h5>Cadastre um ponto de apoio</h5>
+        <p class="texto-cartoes"> &boxtimes;&boxtimes;&boxtimes;</p>
         <a
-          href="http://localhost:3000/location/create"
-          class="btn btn-primary"
-          >Cadastrar Parceiro</a
-        >
+            href="http://localhost:3000/location/create"
+            class="btn btn-primary"
+            >Cadastre um ponto de apoio</a
+          >
+      </div>
+      <div class="col-md-6">
+        <div class="container-cartoes1">
+          <h5 class="texto-cartoes">Seja um Patrocinador</h5>
+          <p class="card-text">
+            &boxtimes;&boxtimes;&boxtimes;
+          </p>
+          <a href="http://localhost:3000/location/map" class="btn btn-primary">Acesse nosso mapa!</a>
+        </div>
       </div>
     </div>
   </div>
   <!-- botao end-->
 
-  <!--Locais -->
+  <!-- Locais -->
+  <div class="container-donation">
+    <h2>Pontos de apoio já cadastrados</h2>
+    <div id="container-pontos" class="container-pontos">
+      <!-- Conteúdo será inserido dinamicamente -->
+    </div>
+  </div>
+  <!-- Locais end -->
 
-  <!--Locais end-->
 
+  <script src="../../js/views/detalheLocal.js"></script>
   <script src="../../js/effects.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
