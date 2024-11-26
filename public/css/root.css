@@ -17,7 +17,7 @@
   --cor-texto: #edeffd;
   --cor-background: #181e18;
   --cor-preto: #000;
-  --cor-loading:rgb(0, 0, 0, 0.5);
+  --cor-loading: rgb(0, 0, 0, 0.5);
 
   --cor-aquas: #2700d4;
   --cor-aquas-light: #0178ff;
@@ -43,8 +43,9 @@
   --transition-ease: transform 0.3s ease;
 
   --h3-font-weigth-aside: 400;
-
   --font-size1: 1em;
   --h3-font-size-aside: 0.87rem;
-}
 
+  --dist-navbar: 5.5rem;
+  --dist-sidebar: 260px;
+}

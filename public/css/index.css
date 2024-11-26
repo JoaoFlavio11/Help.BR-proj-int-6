@@ -12,10 +12,12 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000; /* Mantém a navbar acima dos outros elementos */
+  z-index: 1000;
+  /* Mantém a navbar acima dos outros elementos */
   background-color: var(--cor-branco);
 }
-.navbar-brand{
+
+.navbar-brand {
   color: var(--cor-helps);
 }
 
@@ -168,11 +170,13 @@ aside.condensed .sidebar a {
 }
 
 aside.condensed .sidebar a:hover::after {
-  content: attr(title); /* Obtém o texto do atributo title */
+  content: attr(title);
+  /* Obtém o texto do atributo title */
   position: absolute;
   margin-left: 1rem;
   font-weight: bold;
-  left: 100%; /* Ajusta para aparecer ao lado direito do ícone */
+  left: 100%;
+  /* Ajusta para aparecer ao lado direito do ícone */
   top: 50%;
   transform: translateY(-50%);
   background-color: var(--cor-help-light);
@@ -196,28 +200,46 @@ aside.condensed .sidebar a span {
     display: block;
   }
 }
+
 .container-parceiros {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #00bcd4; /* Cor de fundo semelhante ao da imagem */
+  background-color: #00bcd4;
+  /* Cor de fundo semelhante ao da imagem */
   padding: 20px;
   border-radius: 10px;
-  max-width: 600px; /* Ajuste a largura conforme necessário */
-  margin: 20px auto;
+  max-width: 700px;
+  width: 600px;
+  /* Ajuste a largura conforme necessário */
 }
 
 .container-parceiros h1 {
-  color: #333;
+  color: #FFF;
   margin-bottom: 20px;
   font-size: 2em;
 }
 
+.container-parceiros {
+  margin-top: 5.5rem;
+  width: calc(100% - 45rem);
+  /* Ajuste para evitar sobreposição com a sidebar */
+  margin-left: 260px;
+  /* Distância da sidebar */
+  padding: 20px;
+  background-color: var(--cor-branco);
+  border-radius: var(--border-radius-3);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+
 .empresa {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  background-color: #ffc107; /* Cor de fundo dos itens */
+  background-color: var(--cor-helps);
+  /* Cor de fundo dos itens */
   color: #333;
   font-weight: bold;
   width: 100%;
@@ -226,11 +248,21 @@ aside.condensed .sidebar a span {
   border-radius: 10px;
 }
 
+.empresa-icon {
+  display: flex;
+  margin-left: 45%;
+  height: 100px;
+  width: 100px;
+
+}
+
 .container-donation,
 .form-donation {
-  margin-top: 3.8rem;
-  width: calc(100% - 45rem); /* Ajuste para evitar sobreposição com a sidebar */
-  margin-left: 260px; /* Distância da sidebar */
+  margin-top: var(--dist-navbar);
+  width: calc(100% - 45rem);
+  /* Ajuste para evitar sobreposição com a sidebar */
+  margin-left: 260px;
+  /* Distância da sidebar */
   padding: 20px;
   background-color: var(--cor-branco);
   border-radius: var(--border-radius-3);
@@ -242,12 +274,14 @@ aside.condensed .sidebar a span {
 
 .doacoes-lista {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Exibir 3 itens por linha */
+  grid-template-columns: repeat(3, 1fr);
+  /* Exibir 3 itens por linha */
   gap: 20px;
   width: 100%;
 }
 
-.doacao-card, .apoio-card{
+.doacao-card,
+.apoio-card {
   background-color: #f9f9f9;
   color: #333;
   border: 1px solid #ddd;
@@ -258,19 +292,23 @@ aside.condensed .sidebar a span {
   overflow: hidden;
 }
 
-.doacao-card:hover, .apoio-card:hover {
-  transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+.doacao-card:hover,
+.apoio-card:hover {
+  transform: scale(1.05);
+  /* Efeito de zoom ao passar o mouse */
   background-color: var(--cor-helps2);
   border: 2px solid var(--cor-help-verde);
   transition: var(--transiotion-ease);
 }
 
-.doacao-card, .apoio-card h2 {
+.doacao-card,
+.apoio-card h2 {
   font-size: 1.5em;
   margin-bottom: 10px;
 }
 
-.doacao-card, .apoio-card p {
+.doacao-card,
+.apoio-card p {
   font-size: var(--font-size1);
   line-height: 1.4;
 }
@@ -468,10 +506,12 @@ input {
 }
 
 .slider {
-  margin: 5%;
   width: 800px;
   height: 400px;
   overflow: hidden;
+  margin-left: var(--dist-sidebar);
+  margin-top: 5.5rem;
+  border-radius: var(--border-radius-3);
 }
 
 .slides {
@@ -565,40 +605,60 @@ input {
 .textoHome {
   background-color: var(--cor-branco);
   border-radius: var(--border-radius-3);
-  padding: 1rem;
+  padding: 20px;
   display: flex;
   margin: 10px;
   width: 800px;
-
+  margin-top: 3rem;
+  margin-left: var(--dist-sidebar);
 }
 
 .textoHomeEstilo {
-  font-family: Open-sans, sans-serif;
   color: #fff;
   line-height: 2;
 }
 
-.container-cartoes-geral {
+.container-cartoes-geral h2 {
   margin-left: 5%;
+  color: #FFF;
+  margin-top: 20px;
 }
+
+.container-cartoes-geral {
+  margin-left: var(--dist-sidebar);
+}
+
+
 
 .container-cartoes1 {
   background-color: #fff;
   border-radius: var(--border-radius-1);
   margin: 20px;
-  margin-left: auto;
+  width: 650px;
   padding: 10px;
-  width: 400px;
+
 }
 
+.container-cartoes-locais {
+  background-color: #fff;
+  border-radius: var(--border-radius-1);
+  margin: 20px;
+  margin-left: var(--dist-sidebar);
+  padding: 10px;
+  width: 750px;
+}
+
+
 .texto-cartoes {
-  margin-top: 5px;
+  margin-top: 5px;
 }
 
 .container-donation {
   margin-top: 3.8rem;
-  width: calc(100% - 45rem); /* Ajuste para evitar sobreposição com a sidebar */
-  margin-left: 260px; /* Distância da sidebar */
+  width: calc(100% - 45rem);
+  /* Ajuste para evitar sobreposição com a sidebar */
+  margin-left: var(--dist-sidebar);
+  /* Distância da sidebar */
   padding: 20px;
   background-color: var(--cor-branco);
   border-radius: var(--border-radius-3);
@@ -610,14 +670,18 @@ input {
   font-size: 1.8rem;
   color: var(--cor-escuro);
   text-align: center;
-  margin-bottom: 20px; /* Espaçamento abaixo do título */
+  margin-bottom: 20px;
+  /* Espaçamento abaixo do título */
 }
 
 .container-pontos {
   display: flex;
-  flex-wrap: wrap; /* Permite que os cartões sejam ajustados automaticamente em múltiplas linhas, se necessário */
-  justify-content: center; /* Alinha os cartões horizontalmente */
-  gap: 20px; /* Espaçamento entre os cartões */
+  flex-wrap: wrap;
+  /* Permite que os cartões sejam ajustados automaticamente em múltiplas linhas, se necessário */
+  justify-content: center;
+  /* Alinha os cartões horizontalmente */
+  gap: 20px;
+  /* Espaçamento entre os cartões */
 }
 
 .apoio-card {
@@ -629,12 +693,14 @@ input {
   box-shadow: var(--box-shadow-donation);
   transition: var(--transiotion-ease);
   overflow: hidden;
-  width: 300px; /* Largura fixa para os cartões */
+  width: 300px;
+  /* Largura fixa para os cartões */
   text-align: center;
 }
 
 .apoio-card:hover {
-  transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+  transform: scale(1.05);
+  /* Efeito de zoom ao passar o mouse */
   background-color: var(--cor-helps2);
   border: 2px solid var(--cor-help-verde);
   transition: var(--transiotion-ease);
