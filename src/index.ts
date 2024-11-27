@@ -7,8 +7,9 @@ import donationRouter from "./routers/donationRoutes";
 import authRouter from "./routers/authRoutes";
 import colabRouter from "./routers/colabRoutes";
 import locationRouter from "./routers/locationRoutes";
+import { errorMiddleware } from "./middlewares/errorMiddleware";
+import { rateLimitMiddleware } from "./middlewares/rateLimitMiddleware";
 import { connectToMongoose } from "./database/mongoose";
-import { MongoClient } from "./database/mongo";
 
 const main = async () => {
   config();
@@ -18,9 +19,9 @@ const main = async () => {
   
   app.use(express.urlencoded({ extended: true })); //processar dados do formulário
   app.use(express.static(path.join(__dirname, "../public")));
+  app.use(rateLimitMiddleware); // middleware de rate limiting
 
   await connectToMongoose(); // Conecta-se ao MongoDB com mongoose
-  await MongoClient.connect(); // Conecta-se ao MongoDB com MongoClient
 
   app.use("/", pageRouter);
   app.use("/users", userRouter);
@@ -29,12 +30,17 @@ const main = async () => {
   app.use("/colab", colabRouter);
   app.use("/location", locationRouter);
 
+  //middleware para erros globais
+  app.use(errorMiddleware);
+
   
 
   const port = process.env.PORT || 3000;
   app.listen(port, () => console.log(`Listening on http://localhost:${port}/login`));
 };
 
-main();
+main().catch((error) => {
+  console.error("Erro ao iniciar o servidor:", error);
+});
 
 

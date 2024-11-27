@@ -100,63 +100,58 @@
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     }).addTo(map);
   
-    // Função para criar marcadores interativos
-    function criarMarcador({ lat, lng, popup }) {
-      const marker = L.marker([lat, lng]).addTo(map);
+    // Função para desenhar uma área no mapa
+    function desenharArea(corner1, corner2) {
+      const bounds = [corner1, corner2]; // Coordenadas opostas para o retângulo
+      const rectangle = L.rectangle(bounds, {
+        color: "blue",
+        weight: 2,
+      }).addTo(map);
   
-      // Adicionar popup
-      marker.bindPopup(popup);
-  
-      // Evento ao clicar no marcador
-      marker.on("click", () => {
-        alert(`Você clicou no marcador em: ${lat}, ${lng}`);
+      // Adicionar evento de clique no retângulo
+      rectangle.on("click", () => {
+        alert("Você clicou em uma área desenhada!");
       });
   
-      // Alterar aparência ao passar o mouse
-      marker.on("mouseover", () => {
-        marker.setIcon(
-          L.icon({
-            iconUrl: "https://cdn-icons-png.flaticon.com/512/149/149059.png", // Exemplo de ícone
-            iconSize: [30, 30],
-          })
-        );
+      // Mostrar popup ao passar o mouse sobre a área
+      rectangle.on("mouseover", (e) => {
+        rectangle.bindPopup(
+          `<b>Área Selecionada</b><br>
+          Lat inicial: ${corner1[0].toFixed(5)}, Lng inicial: ${corner1[1].toFixed(5)}<br>
+          Lat final: ${corner2[0].toFixed(5)}, Lng final: ${corner2[1].toFixed(5)}`
+        ).openPopup(e.latlng);
       });
   
-      // Restaurar ícone ao sair do marcador
-      marker.on("mouseout", () => {
-        marker.setIcon(L.Icon.Default.prototype.options.iconUrl);
+      // Evento de sair do retângulo
+      rectangle.on("mouseout", () => {
+        rectangle.closePopup();
       });
     }
   
-    // Marcador fixo como exemplo inicial
-    criarMarcador({
-      lat: -23.55052,
-      lng: -46.633308,
-      popup: "<b>Ponto de Apoio</b><br>Endereço exemplo.",
+    // Coordenadas de exemplo para áreas fixas
+    desenharArea([-23.551, -46.634], [-23.552, -46.635]);
+    desenharArea([-23.553, -46.636], [-23.554, -46.637]);
+  
+    // Adicionar funcionalidade interativa de desenho
+    let isDrawing = false;
+    let startPoint;
+  
+    map.on("mousedown", (e) => {
+      // Início do desenho
+      isDrawing = true;
+      startPoint = [e.latlng.lat, e.latlng.lng];
     });
   
-    // Adicionar mais pontos dinamicamente
-    const pontos = [
-      { lat: -23.551, lng: -46.634, popup: "Ponto 1: Descrição" },
-      { lat: -23.552, lng: -46.635, popup: "Ponto 2: Descrição" },
-      { lat: -23.553, lng: -46.636, popup: "Ponto 3: Mais detalhes aqui" },
-    ];
-  
-    pontos.forEach((ponto) => criarMarcador(ponto));
-  
-    // Evento de clique no mapa para adicionar novos marcadores
-    map.on("click", (e) => {
-      const { lat, lng } = e.latlng;
-      criarMarcador({
-        lat,
-        lng,
-        popup: `<b>Você adicionou um novo ponto!</b><br>Lat: ${lat.toFixed(
-          5
-        )}, Lng: ${lng.toFixed(5)}`,
-      });
-      alert("Novo ponto adicionado ao mapa!");
+    map.on("mouseup", (e) => {
+      if (isDrawing) {
+        const endPoint = [e.latlng.lat, e.latlng.lng];
+        desenharArea(startPoint, endPoint); // Desenha o retângulo com os pontos inicial e final
+        isDrawing = false; // Finaliza o desenho
+        alert("Área desenhada com sucesso!");
+      }
     });
   </script>
+  
   
 </body>
 
