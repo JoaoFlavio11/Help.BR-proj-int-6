@@ -93,29 +93,71 @@
   <script>
     // Inicializar o mapa
     const map = L.map("map").setView([-23.55052, -46.633308], 13); // Coordenadas de São Paulo como exemplo
-
+  
     // Adicionar camada de tiles do OpenStreetMap
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution:
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     }).addTo(map);
-
-    // Adicionar marcador de exemplo
-    L.marker([-23.55052, -46.633308])
-      .addTo(map)
-      .bindPopup("<b>Ponto de Apoio</b><br>Endereço exemplo.")
-      .openPopup();
-
-    // Adicionar mais pontos dinamicamente (substituir por API ou banco de dados)
+  
+    // Função para criar marcadores interativos
+    function criarMarcador({ lat, lng, popup }) {
+      const marker = L.marker([lat, lng]).addTo(map);
+  
+      // Adicionar popup
+      marker.bindPopup(popup);
+  
+      // Evento ao clicar no marcador
+      marker.on("click", () => {
+        alert(`Você clicou no marcador em: ${lat}, ${lng}`);
+      });
+  
+      // Alterar aparência ao passar o mouse
+      marker.on("mouseover", () => {
+        marker.setIcon(
+          L.icon({
+            iconUrl: "https://cdn-icons-png.flaticon.com/512/149/149059.png", // Exemplo de ícone
+            iconSize: [30, 30],
+          })
+        );
+      });
+  
+      // Restaurar ícone ao sair do marcador
+      marker.on("mouseout", () => {
+        marker.setIcon(L.Icon.Default.prototype.options.iconUrl);
+      });
+    }
+  
+    // Marcador fixo como exemplo inicial
+    criarMarcador({
+      lat: -23.55052,
+      lng: -46.633308,
+      popup: "<b>Ponto de Apoio</b><br>Endereço exemplo.",
+    });
+  
+    // Adicionar mais pontos dinamicamente
     const pontos = [
       { lat: -23.551, lng: -46.634, popup: "Ponto 1: Descrição" },
       { lat: -23.552, lng: -46.635, popup: "Ponto 2: Descrição" },
+      { lat: -23.553, lng: -46.636, popup: "Ponto 3: Mais detalhes aqui" },
     ];
-
-    pontos.forEach((ponto) => {
-      L.marker([ponto.lat, ponto.lng]).addTo(map).bindPopup(ponto.popup);
+  
+    pontos.forEach((ponto) => criarMarcador(ponto));
+  
+    // Evento de clique no mapa para adicionar novos marcadores
+    map.on("click", (e) => {
+      const { lat, lng } = e.latlng;
+      criarMarcador({
+        lat,
+        lng,
+        popup: `<b>Você adicionou um novo ponto!</b><br>Lat: ${lat.toFixed(
+          5
+        )}, Lng: ${lng.toFixed(5)}`,
+      });
+      alert("Novo ponto adicionado ao mapa!");
     });
   </script>
+  
 </body>
 
 </html>

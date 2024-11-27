@@ -240,19 +240,20 @@ aside.condensed .sidebar a span {
   align-items: center;
   background-color: var(--cor-helps);
   /* Cor de fundo dos itens */
-  color: #333;
+  color: var(--cor-branco2);
   font-weight: bold;
   width: 100%;
   padding: 10px 20px;
   margin: 10px 0;
-  border-radius: 10px;
+  border-radius: var(--border-radius-3);
 }
 
 .empresa-icon {
   display: flex;
-  margin-left: 45%;
-  height: 100px;
-  width: 100px;
+  margin-left: 33%;
+  height:var(--empresa-size);
+  width: var(--empresa-size);
+  
 
 }
 
@@ -282,10 +283,10 @@ aside.condensed .sidebar a span {
 
 .doacao-card,
 .apoio-card {
-  background-color: #f9f9f9;
-  color: #333;
-  border: 1px solid #ddd;
-  padding: 20px;
+  background-color: var(--cor-background-cartoes);
+  color: var(--cor-branco2);
+  border: 1px solid var(--cor-texto);
+  padding: var(--padding-1);
   border-radius: var(--border-radius-cartao);
   box-shadow: var(--box-shadow-donation);
   transition: var(--transiotion-ease);
@@ -624,9 +625,9 @@ input {
   margin-top: 20px;
 }
 
-.container-cartoes-geral {
-  margin-left: var(--dist-sidebar);
-}
+/*.container-cartoes-geral {
+  f
+}*/
 
 
 
