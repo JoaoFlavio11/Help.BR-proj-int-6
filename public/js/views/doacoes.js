@@ -35,4 +35,3 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Configurar atualização automática a cada 10 segundos
   setInterval(atualizarDoacoes, 10000);
 });
-

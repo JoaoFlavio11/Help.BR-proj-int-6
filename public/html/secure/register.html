@@ -13,13 +13,25 @@
       <div class="form-field">
         <h3>Cadastre-se!</h3>
         <div><label>Email:</label></div>
-        <input type="email" name="email" id="email" placeholder="seu@email.com" onchange="onChangeEmail()"/>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="seu@email.com"
+          onchange="onChangeEmail()"
+        />
         <div class="error" id="email-required-error">Email é obrigatório!</div>
         <div class="error" id="email-invalid-error">Email é inválido!</div>
       </div>
       <div class="form-field">
         <div><label>Senha:</label></div>
-        <input type="password" name="password" id="password" placeholder="Senha" onchange="onChangePassword()"/>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Senha"
+          onchange="onChangePassword()"
+        />
         <div class="error" id="password-required-error">
           Senha é obrigatória!
         </div>
@@ -57,7 +69,7 @@
       </div>
     </form>
   </body>
-  
+
   <script src="../../js/loading.js"></script>
   <!-- Scripts externos do Firebase -->
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
@@ -65,5 +77,4 @@
   <script src="../../firebase/firebaseConfig.js"></script>
   <script src="../../firebase/secure/register.js"></script>
   <script src="../../firebase/secure/validations.js"></script>
-  
 </html>

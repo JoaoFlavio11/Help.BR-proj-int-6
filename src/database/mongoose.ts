@@ -12,4 +12,3 @@ export const connectToMongoose = async (): Promise<void> => {
     throw error;
   }
 };
-

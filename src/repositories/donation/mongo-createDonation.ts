@@ -14,5 +14,3 @@ export class MongoCreateDonationRepository {
     return await donation.save();
   }
 }
-
-

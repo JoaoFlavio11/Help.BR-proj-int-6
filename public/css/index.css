@@ -21,8 +21,6 @@
   color: var(--cor-helps);
 }
 
-
-
 body {
   background-color: var(--cor-background);
   color: var(--cor-escuro);
@@ -215,7 +213,7 @@ aside.condensed .sidebar a span {
 }
 
 .container-parceiros h1 {
-  color: #FFF;
+  color: #fff;
   margin-bottom: 20px;
   font-size: 2em;
 }
@@ -234,7 +232,6 @@ aside.condensed .sidebar a span {
   flex-wrap: wrap;
 }
 
-
 .empresa {
   display: flex;
   align-items: center;
@@ -251,10 +248,8 @@ aside.condensed .sidebar a span {
 .empresa-icon {
   display: flex;
   margin-left: 33%;
-  height:var(--empresa-size);
+  height: var(--empresa-size);
   width: var(--empresa-size);
-  
-
 }
 
 .container-donation,
@@ -559,15 +554,15 @@ input {
   background-color: var(--cor-helps);
 }
 
-#radio1:checked~.first {
+#radio1:checked ~ .first {
   margin-left: 0;
 }
 
-#radio2:checked~.first {
+#radio2:checked ~ .first {
   margin-left: -25%;
 }
 
-#radio3:checked~.first {
+#radio3:checked ~ .first {
   margin-left: -50%;
 }
 
@@ -591,15 +586,9 @@ input {
   margin-right: 30px;
 }
 
-#radio1:checked~.navigation-auto .auto-btn1 {
-  background-color: var(--cor-helps2);
-}
-
-#radio2:checked~.navigation-auto .auto-btn2 {
-  background-color: var(--cor-helps2);
-}
-
-#radio3:checked~.navigation-auto .auto-btn3 {
+#radio1:checked ~ .navigation-auto .auto-btn1, 
+#radio2:checked ~ .navigation-auto .auto-btn2, 
+#radio3:checked ~ .navigation-auto .auto-btn3 {
   background-color: var(--cor-helps2);
 }
 
@@ -621,7 +610,7 @@ input {
 
 .container-cartoes-geral h2 {
   margin-left: 5%;
-  color: #FFF;
+  color: #fff;
   margin-top: 20px;
 }
 
@@ -629,15 +618,12 @@ input {
   f
 }*/
 
-
-
 .container-cartoes1 {
   background-color: #fff;
   border-radius: var(--border-radius-1);
   margin: 20px;
   width: 650px;
   padding: 10px;
-
 }
 
 .container-cartoes-locais {
@@ -648,7 +634,6 @@ input {
   padding: 10px;
   width: 750px;
 }
-
 
 .texto-cartoes {
   margin-top: 5px;
@@ -665,7 +650,6 @@ input {
   border-radius: var(--border-radius-3);
   color: var(--cor-texto);
 }
-
 
 .container-donation h2 {
   font-size: 1.8rem;

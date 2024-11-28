@@ -1,10 +1,10 @@
 @import url(./root.css);
 
 * {
-    margin: 0;
-    padding: 0;
-    font-family: Open-sans, sans-serif;
-  }
+  margin: 0;
+  padding: 0;
+  font-family: Open-sans, sans-serif;
+}
 
 .loading {
   background-color: var(--cor-loading);
@@ -18,8 +18,8 @@
   font-size: 24px;
 }
 
-.centralize{
-    align-items: center;
-    justify-content: center;
-    display: flex;
+.centralize {
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }

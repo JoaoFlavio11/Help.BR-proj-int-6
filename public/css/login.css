@@ -4,7 +4,7 @@
   font-family: sans-serif;
 }
 
-body{
+body {
   background-color: var(--cor-help-light);
   display: flex;
   justify-content: center;
@@ -42,15 +42,15 @@ button {
   color: var(--cor-texto);
 }
 
-button:active{
+button:active {
   opacity: 0.9;
 }
 
-button:disabled{
+button:disabled {
   opacity: 0.4;
 }
 
-.form-field{
+.form-field {
   margin-bottom: var(--padding-login);
 }
 
@@ -85,15 +85,12 @@ button:disabled{
   border: 2px solid var(--cor-branco2);
 }
 
-.error{
+.error {
   background-color: var(--cor-aviso);
   border-radius: var(--border-radius-1);
   padding: var(--padding-error);
-  font-weight: bolder;  
+  font-weight: bolder;
   color: var(--cor-texto);
   display: none;
   margin: var(--border-error);
 }
-
-
-
