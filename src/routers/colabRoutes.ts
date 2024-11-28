@@ -10,14 +10,14 @@ const colabRouter = Router();
 
 colabRouter.get("/partner", (req: Request, res: Response) => {
   res.sendFile(
-    path.join(__dirname, "../../public/html", "views", "cadastroPartner.html")
+    path.join(__dirname, "../../public/html", "views", "cadastroPartner.html"),
   );
 });
 
 colabRouter.post("/partner", async (req: Request, res: Response) => {
   const mongoCreatePartnerRepository = new MongoCreatePartnerRepository();
   const createPartnerController = new CreatePartnerController(
-    mongoCreatePartnerRepository
+    mongoCreatePartnerRepository,
   );
 
   console.log("Dados recebidos no formulário:", req.body); // Log para verificar os dados
@@ -44,18 +44,20 @@ colabRouter.post("/partner", async (req: Request, res: Response) => {
 
 colabRouter.get("/sponsor", (req: Request, res: Response) => {
   res.sendFile(
-    path.join(__dirname, "../../public/html", "views", "cadastroSponsor.html")
+    path.join(__dirname, "../../public/html", "views", "cadastroSponsor.html"),
   );
 });
 
 colabRouter.post("/sponsor", async (req: Request, res: Response) => {
   console.log("Dados recebidos no formulário:", req.body);
   const mongoCreateSponsorRepository = new MongoCreateSponsorRepository();
-  const createSponsorController = new CreateSponsorController(mongoCreateSponsorRepository);
+  const createSponsorController = new CreateSponsorController(
+    mongoCreateSponsorRepository,
+  );
 
   console.log("Dados recebidos no formulário:", req.body); // Log para verificar os dados
 
-  try{
+  try {
     const result = await createSponsorController.handle({
       body: req.body,
     });

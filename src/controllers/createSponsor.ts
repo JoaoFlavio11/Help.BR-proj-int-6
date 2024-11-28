@@ -9,7 +9,7 @@ interface SponsorBody {
 }
 
 export class CreateSponsorController {
-  constructor(private createSponsorRepository: MongoCreateSponsorRepository){}
+  constructor(private createSponsorRepository: MongoCreateSponsorRepository) {}
   async handle({ body }: { body: SponsorBody }) {
     console.log("Dados recebidos no controller:", body); // Log para inspecionar
 
@@ -21,7 +21,10 @@ export class CreateSponsorController {
       !body.sponsorLaw
     ) {
       console.error("Dados incompletos recebidos:", body);
-      return { body: "Dados incompletos no corpo da requisição", statusCode: 400 };
+      return {
+        body: "Dados incompletos no corpo da requisição",
+        statusCode: 400,
+      };
     }
 
     try {

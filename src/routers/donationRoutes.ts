@@ -19,7 +19,9 @@ donationRouter.get("/cadastroDoacao", (req: Request, res: Response) => {
 // Rota para cadastrar uma doação
 donationRouter.post("/addDonation", async (req: Request, res: Response) => {
   const mongoCreateDonationRepository = new MongoCreateDonationRepository();
-  const createDonationController = new CreateDonationController(mongoCreateDonationRepository);
+  const createDonationController = new CreateDonationController(
+    mongoCreateDonationRepository,
+  );
 
   const { statusCode } = await createDonationController.handle({
     body: req.body,
@@ -33,7 +35,6 @@ donationRouter.post("/addDonation", async (req: Request, res: Response) => {
   }
 });
 
-
 // Rota para buscar a lista de doações
 donationRouter.get("/doacoes", (req: Request, res: Response) => {
   res.sendFile(
@@ -43,7 +44,12 @@ donationRouter.get("/doacoes", (req: Request, res: Response) => {
 
 donationRouter.get("/confirmacaoDoacao", (req: Request, res: Response) => {
   res.sendFile(
-    path.join(__dirname, "../../public/html", "views", "confirmacaoDoacao.html"),
+    path.join(
+      __dirname,
+      "../../public/html",
+      "views",
+      "confirmacaoDoacao.html",
+    ),
   );
 });
 
@@ -63,14 +69,16 @@ donationRouter.use(express.urlencoded({ extended: true }));
 // Rota para exibir os detalhes da doação
 donationRouter.get("/doacoes/:id", (req: Request, res: Response) => {
   res.sendFile(
-    path.join(__dirname, "../../public/html", "views", "detalheDoacao.html")
+    path.join(__dirname, "../../public/html", "views", "detalheDoacao.html"),
   );
 });
 
 // Rota para processar os dados do formulário de doação
 donationRouter.post("/doacoes/:id", async (req: Request, res: Response) => {
   const mongoCreateDonorRepository = new MongoCreateDonorRepository();
-  const createDonorController = new CreateDonorController(mongoCreateDonorRepository);
+  const createDonorController = new CreateDonorController(
+    mongoCreateDonorRepository,
+  );
 
   const { CPF, email, name, address, phone, donationDate, notes } = req.body;
 
@@ -84,7 +92,9 @@ donationRouter.post("/doacoes/:id", async (req: Request, res: Response) => {
     donorNotes: notes,
   };
 
-  const { statusCode, body } = await createDonorController.handle({ body: donorData });
+  const { statusCode, body } = await createDonorController.handle({
+    body: donorData,
+  });
 
   if (statusCode === 201) {
     res.redirect("/confirmacaoDoacao");
