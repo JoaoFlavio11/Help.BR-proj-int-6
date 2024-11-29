@@ -7,13 +7,15 @@ import donationRouter from "./routers/donationRoutes";
 import authRouter from "./routers/authRoutes";
 import colabRouter from "./routers/colabRoutes";
 import locationRouter from "./routers/locationRoutes";
+import { connectToMongoose } from "./database/mongoose";
+import { connectToRedis } from "./database/redisClient";
 import compression from "compression";
 import cookieParser from "cookie-parser";
 import { errorMiddleware } from "./middlewares/errorMiddleware";
 import { rateLimitMiddleware } from "./middlewares/rateLimitMiddleware";
-import { connectToMongoose } from "./database/mongoose";
 import { cookieMiddleware } from "./middlewares/cookieMiddleware";
 import { routeNotFoundMiddleware } from "./middlewares/routeNotFoundMiddleware";
+
 
 const main = async () => {
   config();
@@ -26,7 +28,8 @@ const main = async () => {
   app.use(express.static(path.join(__dirname, "../public")));
   app.use(rateLimitMiddleware); // middleware de rate limiting
 
-  await connectToMongoose(); // Conecta-se ao MongoDB com mongoose
+  await connectToMongoose(); // MongoDB com mongoose
+  await connectToRedis(); // Redis
 
   app.use("/", pageRouter);
   app.use("/users", userRouter);
