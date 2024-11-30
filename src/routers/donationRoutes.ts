@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import express, { Router, Request, Response } from "express";
 import path from "path";
 import Donation from "../models/donations";
@@ -7,6 +6,7 @@ import { MongoCreateDonationRepository } from "../repositories/donation/mongo-cr
 import { ObjectId } from "mongodb";
 import { CreateDonorController } from "../controllers/createDonor";
 import { MongoCreateDonorRepository } from "../repositories/mongo-createDonor";
+import { cacheMiddleware } from "../middlewares/cacheMiddleware";
 
 const donationRouter = Router();
 
@@ -53,15 +53,19 @@ donationRouter.get("/confirmacaoDoacao", (req: Request, res: Response) => {
   );
 });
 
-// Rota para buscar as doações como JSON
-donationRouter.get("/api/doacoes", async (req: Request, res: Response) => {
-  try {
-    const donations = await Donation.find();
-    res.json(donations);
-  } catch {
-    res.status(500).json({ message: "Erro ao buscar doações" });
-  }
-});
+// Rota para buscar as doações como JSON (com Redis)
+donationRouter.get(
+  "/api/doacoes",
+  cacheMiddleware, // Middleware de cache aplicado
+  async (req: Request, res: Response) => {
+    try {
+      const donations = await Donation.find();
+      res.json(donations);
+    } catch {
+      res.status(500).json({ message: "Erro ao buscar doações" });
+    }
+  },
+);
 
 // Middleware para processar dados do formulário
 donationRouter.use(express.urlencoded({ extended: true }));
@@ -92,7 +96,7 @@ donationRouter.post("/doacoes/:id", async (req: Request, res: Response) => {
     donorNotes: notes,
   };
 
-  const { statusCode, body } = await createDonorController.handle({
+  const { statusCode } = await createDonorController.handle({
     body: donorData,
   });
 
@@ -103,27 +107,31 @@ donationRouter.post("/doacoes/:id", async (req: Request, res: Response) => {
   }
 });
 
-// Rota para buscar uma doação específica como JSON
-donationRouter.get("/api/doacoes/:id", async (req: Request, res: Response) => {
-  const id = req.params.id;
+// Rota para buscar uma doação específica como JSON (com Redis)
+donationRouter.get(
+  "/api/doacoes/:id",
+  cacheMiddleware, // Middleware de cache aplicado
+  async (req: Request, res: Response) => {
+    const id = req.params.id;
 
-  try {
-    if (!ObjectId.isValid(id)) {
-      res.status(400).json({ message: "ID inválido" });
-      return;
+    try {
+      if (!ObjectId.isValid(id)) {
+        res.status(400).json({ message: "ID inválido" });
+        return;
+      }
+
+      const donation = await Donation.findById(new ObjectId(id));
+      if (!donation) {
+        res.status(404).json({ message: "Doação não encontrada" });
+        return;
+      }
+
+      res.json(donation);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: "Erro ao buscar doação" });
     }
-
-    const donation = await Donation.findById(new ObjectId(id));
-    if (!donation) {
-      res.status(404).json({ message: "Doação não encontrada" });
-      return;
-    }
-
-    res.json(donation);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Erro ao buscar doação" });
-  }
-});
+  },
+);
 
 export default donationRouter;

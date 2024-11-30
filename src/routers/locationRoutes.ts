@@ -3,10 +3,11 @@ import path from "path";
 import { MongoCreateLocationRepository } from "../repositories/mongo-createLocation";
 import { CreateLocationController } from "../controllers/createLocation";
 import LocationData from "../models/location";
+import { cacheMiddleware } from "../middlewares/cacheMiddleware";
 
 const locationRouter = Router();
 
-locationRouter.get("/support", (req: Request, res: Response) => {
+locationRouter.get("/support", cacheMiddleware, (req: Request, res: Response) => {
   res.sendFile(
     path.join(__dirname, "../../public/html", "content", "locais.html"),
   );
@@ -45,11 +46,11 @@ locationRouter.post("/create", async (req: Request, res: Response) => {
   }
 });
 
-// Rota para retornar os pontos de apoio em JSON
-locationRouter.get("/api/support", async (req: Request, res: Response) => {
+// Rota para retornar os pontos de apoio em JSON com cache
+locationRouter.get("/api/support", cacheMiddleware, async (req: Request, res: Response) => {
   try {
-    const locations = await LocationData.find(); // Uso correto de find
-    res.json(locations);
+    const locations = await LocationData.find(); // busca os pontos de apoio no BD
+    res.json(locations); // resposta armazenada pelo middleware
   } catch (error) {
     console.error("Erro ao buscar pontos de apoio:", error);
     res.status(500).json({ message: "Erro ao buscar pontos de apoio" });

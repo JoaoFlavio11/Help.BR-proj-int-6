@@ -1,0 +1,117 @@
+@import url(../css/root.css);
+body {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(
+    135deg,
+    var(--cor-help-verde),
+    var(--cor-helps2)
+  );
+  color: var(--cor-texto);
+  text-align: center;
+}
+
+.container {
+  max-width: 400px;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 5rem;
+  margin: 20px 0;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--cor-background-cartoes);
+  color: var(--cor-help-dark2);
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  animation: bounce 2s infinite;
+}
+
+.btn:hover {
+  background: var(--cor-help-dark);
+  color: var(--cor-texto);
+}
+
+.animation {
+  position: relative;
+  margin: 0 auto 30px;
+  width: 100px;
+  height: 100px;
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  background: var(--cor-texto);
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  animation: float 1.5s infinite ease-in-out;
+}
+
+.shadow {
+  width: 100px;
+  height: 15px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  animation: shrink 1.5s infinite ease-in-out;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes shrink {
+  0%,
+  100% {
+    width: 100px;
+  }
+  50% {
+    width: 80px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
