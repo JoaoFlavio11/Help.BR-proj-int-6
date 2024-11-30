@@ -1,0 +1,1 @@
+{"level":"error","message":"ENOENT: no such file or directory, stat '/home/user/proj_int/api_teste/src/public/html/content/404.html'","method":"GET","stack":"Error: ENOENT: no such file or directory, stat '/home/user/proj_int/api_teste/src/public/html/content/404.html'","timestamp":"2024-11-30 03:49:00","url":"/mulambo"}

@@ -5,10 +5,11 @@ import { MongoCreatePartnerRepository } from "../repositories/mongo-createPartne
 import { CreatePartnerController } from "../controllers/createPartner";
 import { MongoCreateSponsorRepository } from "../repositories/mongo-createSponsor";
 import { CreateSponsorController } from "../controllers/createSponsor";
+import { cacheMiddleware } from "../middlewares/cacheMiddleware";
 
 const colabRouter = Router();
 
-colabRouter.get("/partner", (req: Request, res: Response) => {
+colabRouter.get("/partner", cacheMiddleware, (req: Request, res: Response) => {
   res.sendFile(
     path.join(__dirname, "../../public/html", "views", "cadastroPartner.html"),
   );
@@ -42,7 +43,7 @@ colabRouter.post("/partner", async (req: Request, res: Response) => {
   }
 });
 
-colabRouter.get("/sponsor", (req: Request, res: Response) => {
+colabRouter.get("/sponsor", cacheMiddleware, (req: Request, res: Response) => {
   res.sendFile(
     path.join(__dirname, "../../public/html", "views", "cadastroSponsor.html"),
   );
