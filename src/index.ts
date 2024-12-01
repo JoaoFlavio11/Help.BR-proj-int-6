@@ -4,7 +4,6 @@ import path from "path";
 import compression from "compression";
 import cookieParser from "cookie-parser";
 import { setupSwagger } from "./utils/swaggerConfig";
-import userRouter from "./routers/userRoutes";
 import pageRouter from "./routers/pageRoutes";
 import donationRouter from "./routers/donationRoutes";
 import authRouter from "./routers/authRoutes";
@@ -45,7 +44,6 @@ setupSwagger(app);
 
 // Rotas
 app.use("/", pageRouter);
-app.use("/users", userRouter);
 app.use("/", donationRouter);
 app.use("/", authRouter);
 app.use("/colab", colabRouter);
