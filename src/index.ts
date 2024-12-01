@@ -3,17 +3,15 @@ import { config } from "dotenv";
 import path from "path";
 import compression from "compression";
 import cookieParser from "cookie-parser";
-
+import { setupSwagger } from "./utils/swaggerConfig";
 import userRouter from "./routers/userRoutes";
 import pageRouter from "./routers/pageRoutes";
 import donationRouter from "./routers/donationRoutes";
 import authRouter from "./routers/authRoutes";
 import colabRouter from "./routers/colabRoutes";
 import locationRouter from "./routers/locationRoutes";
-
 import { connectToMongoose } from "./database/mongoose";
 import { connectToRedis } from "./database/redisClient";
-
 import { errorMiddleware } from "./middlewares/errorMiddleware";
 import { rateLimitMiddleware } from "./middlewares/rateLimitMiddleware";
 import { cookieMiddleware } from "./middlewares/cookieMiddleware";
@@ -43,6 +41,8 @@ app.use(rateLimitMiddleware); // Middleware de rate limiting
   }
 })();
 
+setupSwagger(app);
+
 // Rotas
 app.use("/", pageRouter);
 app.use("/users", userRouter);
@@ -59,12 +59,10 @@ app.use(errorMiddleware); // Middleware para erros globais
 // Porta e servidor
 const port = process.env.PORT || 3000;
 
-// Inicia o servidor se não estiver em ambiente de teste
-if (process.env.NODE_ENV !== "test") {
-  app.listen(port, () =>
-    console.log(`Servidor rodando em http://localhost:${port}/login`),
-  );
-}
+app.listen(port, () =>
+  console.log(`Servidor rodando em http://localhost:${port}/login`),
+);
+
 
 // Exporta o app para testes
 export { app };

@@ -19,8 +19,8 @@ document.addEventListener("DOMContentLoaded", async () => {
           <p>${doacao.donationDescription}</p>
           <p><strong>Tipo de Item:</strong> ${doacao.itemType}</p>
           <p><strong>Quantidade:</strong> ${doacao.quantity}</p>
+          <p><strong>Chave Pix:</strong> ${doacao.chavePix}</p> <!-- Adicionado campo chavePix -->
           <button class="donate-btn" onclick="window.location.href='http://localhost:3000/doacoes/${doacao._id}'"><b>Doar!</b></button>
-
         `;
 
         container.appendChild(card);

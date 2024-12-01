@@ -1,0 +1,343 @@
+openapi: 3.0.0
+info:
+  title: Help.br - Sua plataforma de doações
+  description: Documentação detalhada do Help.br
+  version: 3.2.1
+
+servers:
+  - url: http://localhost:3000
+
+components:
+  schemas:
+    Donation:
+      type: object
+      properties:
+        donationName:
+          type: string
+          description: Nome do item doado
+        donationDescription:
+          type: string
+          description: Descrição do item doado
+        itemType:
+          type: string
+          description: Tipo do item doado
+        quantity:
+          type: number
+          description: Quantidade do item doado
+      required:
+        - donationName
+        - donationDescription
+        - itemType
+        - quantity
+
+    DonorData:
+      type: object
+      properties:
+        donorCpf:
+          type: string
+          description: CPF do doador
+        donorEmail:
+          type: string
+          description: Email do doador
+        donorName:
+          type: string
+          description: Nome do doador
+        donorLocation:
+          type: string
+          description: Localização do doador
+        donorPhone:
+          type: string
+          description: Telefone do doador
+        donationDate:
+          type: string
+          format: date-time
+          description: Data da doação
+        donorNotes:
+          type: string
+          description: Notas ou observações do doador
+        donationId:
+          type: string
+          description: ID da doação referenciada
+      required:
+        - donorCpf
+        - donorEmail
+        - donorName
+        - donorLocation
+        - donorPhone
+        - donationDate
+
+    Location:
+      type: object
+      properties:
+        locationName:
+          type: string
+          description: Nome do local
+        locationAdress:
+          type: string
+          description: Endereço do local
+        locationNumber:
+          type: number
+          description: Número do local
+        locationPostalCode:
+          type: string
+          description: CEP do local
+        locationCity:
+          type: string
+          description: Cidade do local
+      required:
+        - locationName
+        - locationAdress
+        - locationNumber
+        - locationPostalCode
+        - locationCity
+
+    Partner:
+      type: object
+      properties:
+        partnerName:
+          type: string
+          description: Nome do parceiro
+        partnerEmail:
+          type: string
+          description: Email do parceiro
+        partnerPhone:
+          type: string
+          description: Telefone do parceiro
+        partnerCpf:
+          type: string
+          description: CPF do parceiro
+        partnerAge:
+          type: string
+          description: Idade do parceiro
+      required:
+        - partnerName
+        - partnerEmail
+        - partnerPhone
+        - partnerCpf
+        - partnerAge
+
+    Sponsor:
+      type: object
+      properties:
+        sponsorName:
+          type: string
+          description: Nome do patrocinador
+        sponsorEmail:
+          type: string
+          description: Email do patrocinador
+        sponsorPhone:
+          type: string
+          description: Telefone do patrocinador
+        sponsorCnpj:
+          type: string
+          description: CNPJ do patrocinador
+        sponsorLaw:
+          type: string
+          description: Lei de incentivo utilizada pelo patrocinador
+      required:
+        - sponsorName
+        - sponsorEmail
+        - sponsorPhone
+        - sponsorCnpj
+        - sponsorLaw
+
+paths:
+  /:
+    get:
+      summary: Homepage do site.
+      responses:
+        '200':
+          description: Página carregada com sucesso
+
+  /parceiros:
+    get:
+      summary: Página de parceiros
+      responses:
+        '200':
+          description: Página carregada com sucesso
+
+  /support:
+    get:
+      summary: Lista de pontos de apoio
+      responses:
+        '200':
+          description: Página carregada com sucesso
+
+  /api/support:
+    get:
+      summary: Pontos de apoio em JSON
+      responses:
+        '200':
+          description: Lista de pontos de apoio cadastrados
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SupportPoint'
+        '500':
+          description: Erro ao buscar pontos de apoio
+
+  /create:
+    get:
+      summary: Página de cadastro de pontos de apoio
+      responses:
+        '200':
+          description: Página carregada com sucesso
+
+    post:
+      summary: Cadastrar um novo ponto de apoio
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SupportPoint'
+      responses:
+        '201':
+          description: Ponto de apoio cadastrado com sucesso
+        '500':
+          description: Erro ao cadastrar o ponto de apoio
+
+  /map:
+    get:
+      summary: Página com o mapa
+      responses:
+        '200':
+          description: Página carregada com sucesso
+
+  /cadastroDoacao:
+    get:
+      summary: Página de cadastro de doação
+      responses:
+        '200':
+          description: Página carregada com sucesso
+
+  /addDonation:
+    post:
+      summary: Cadastrar uma nova doação
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Donation'
+      responses:
+        '201':
+          description: Doação cadastrada com sucesso
+        '500':
+          description: Erro ao cadastrar a doação
+
+  /doacoes:
+    get:
+      summary: Lista de doações
+      responses:
+        '200':
+          description: Página carregada com sucesso
+
+  /api/doacoes:
+    get:
+      summary: Lista de doações em JSON
+      responses:
+        '200':
+          description: Retorna as doações
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Donation'
+        '500':
+          description: Erro ao buscar as doações
+
+  /doacoes/{id}:
+    get:
+      summary: Detalhes de uma doação
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: ID da doação
+      responses:
+        '200':
+          description: Retorna os detalhes da doação
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Donation'
+        '404':
+          description: Doação não encontrada
+        '500':
+          description: Erro ao buscar os detalhes da doação
+
+    post:
+      summary: Atualizar dados do doador
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DonorData'
+      responses:
+        '201':
+          description: Dados do doador atualizados com sucesso
+        '500':
+          description: Erro ao atualizar os dados do doador
+
+  /partner:
+    get:
+      summary: Página de cadastro de parceiros
+      responses:
+        '200':
+          description: Página carregada com sucesso
+
+    post:
+      summary: Cadastrar um novo parceiro
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Partner'
+      responses:
+        '201':
+          description: Parceiro cadastrado com sucesso
+        '500':
+          description: Erro ao cadastrar o parceiro
+
+  /sponsor:
+    get:
+      summary: Página de cadastro de patrocinadores
+      responses:
+        '200':
+          description: Página carregada com sucesso
+
+    post:
+      summary: Cadastrar um novo patrocinador
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Sponsor'
+      responses:
+        '201':
+          description: Patrocinador cadastrado com sucesso
+        '500':
+          description: Erro ao cadastrar o patrocinador
+
+  /login:
+    get:
+      summary: Página de login
+      responses:
+        '200':
+          description: Página carregada com sucesso
+
+  /register:
+    get:
+      summary: Página de registro
+      responses:
+        '200':
+          description: Página carregada com sucesso

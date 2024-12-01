@@ -566,6 +566,10 @@ input {
   margin-left: -50%;
 }
 
+#radio4:checked ~ .first {
+  margin-left: -75%;
+}
+
 .navigation-auto div {
   border: 2px solid var(--cor-helps);
   padding: 5px;
