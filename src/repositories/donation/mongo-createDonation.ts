@@ -1,4 +1,3 @@
-// repositories/donation/mongo-createDonation.ts
 import Donation from "../../models/donations";
 
 interface DonationData {
@@ -6,6 +5,7 @@ interface DonationData {
   donationDescription: string;
   itemType: string;
   quantity: number;
+  chavePix: string;
 }
 
 export class MongoCreateDonationRepository {

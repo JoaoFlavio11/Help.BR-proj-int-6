@@ -1,4 +1,3 @@
-// models/donation.ts
 import mongoose from "mongoose";
 
 const donationSchema = new mongoose.Schema({
@@ -6,6 +5,7 @@ const donationSchema = new mongoose.Schema({
   donationDescription: { type: String, required: true },
   itemType: { type: String, required: true },
   quantity: { type: Number, required: true },
+  chavePix: { type: String, required: true },
 });
 
 const Donation = mongoose.model("Donation", donationSchema);

@@ -15,6 +15,8 @@ async function carregarDetalhesDoacao() {
       document.getElementById("doacao-tipo").textContent = donation.itemType;
       document.getElementById("doacao-quantidade").textContent =
         donation.quantity;
+        document.getElementById("doacao-chave-pix").textContent =
+        donation.chavePix; // Adicionado campo chavePix
     } else {
       document.querySelector(".detalhes-container").innerHTML =
         "<p>Doação não encontrada.</p>";

@@ -1,4 +1,3 @@
-// controllers/donation/createDonation.ts
 import { MongoCreateDonationRepository } from "../../repositories/donation/mongo-createDonation";
 
 interface DonationBody {
@@ -6,6 +5,7 @@ interface DonationBody {
   donationDescription: string;
   itemType: string;
   quantity: number;
+  chavePix: string;
 }
 
 export class CreateDonationController {
@@ -20,6 +20,7 @@ export class CreateDonationController {
         donationDescription: body.donationDescription,
         itemType: body.itemType,
         quantity: body.quantity,
+        chavePix: body.chavePix,
       });
       return { body: donation, statusCode: 201 };
     } catch {
