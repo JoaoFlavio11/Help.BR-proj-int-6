@@ -100,19 +100,24 @@
           <h3><b>Pontos de apoio</b></h3>
         </a>
 
+        <a href="http://localhost:3000/profile" title="Doações disponíveis">
+          <span class="material-symbols-outlined">person</span>
+          <b><span id="userEmail"></b>
+        </a>
+
         <a onclick="logout()" title="Sair">
           <span class="material-symbols-outlined">exit_to_app</span>
           <h3><b>Sair</b></h3>
         </a>
       </div>
     </aside>
-    <!--Sidebar end-->
+    <!-- Sidebar end -->
 
     <!-- Form -->
     <div class="form-donation">
       <div class="top">
         <h1 class="title">Crie um ponto de apoio</h1>
-        <p>Colete e armazene as doações dos usuários.</p>
+        <h3 class="title">Colete e armazene as doações dos usuários.</h3>
         <form action="/location/create" method="POST" id="LocationForm">
           <div class="form-field">
             <label for="locationName">Nome do Ponto de coleta:</label>
@@ -161,6 +166,7 @@
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
     <script src="../../firebase/firebaseConfig.js"></script>
+    <script src="../../firebase/secure/updateUser.js"></script>
     <script src="../../firebase/secure/auth-guard.js"></script>
   </body>
 </html>

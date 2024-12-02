@@ -6,7 +6,7 @@ import { MongoCreateDonationRepository } from "../repositories/donation/mongo-cr
 import { ObjectId } from "mongodb";
 import { CreateDonorController } from "../controllers/createDonor";
 import { MongoCreateDonorRepository } from "../repositories/mongo-createDonor";
-import { cacheMiddleware } from "../middlewares/cacheMiddleware";
+
 
 const donationRouter = Router();
 
@@ -56,7 +56,6 @@ donationRouter.get("/confirmacaoDoacao", (req: Request, res: Response) => {
 // Rota para buscar as doações como JSON (com Redis)
 donationRouter.get(
   "/api/doacoes",
-  cacheMiddleware, // Middleware de cache aplicado
   async (req: Request, res: Response) => {
     try {
       const donations = await Donation.find();
@@ -110,7 +109,6 @@ donationRouter.post("/doacoes/:id", async (req: Request, res: Response) => {
 // Rota para buscar uma doação específica como JSON (com Redis)
 donationRouter.get(
   "/api/doacoes/:id",
-  cacheMiddleware, // Middleware de cache aplicado
   async (req: Request, res: Response) => {
     const id = req.params.id;
 

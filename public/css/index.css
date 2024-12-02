@@ -19,6 +19,11 @@
 
 .navbar-brand {
   color: var(--cor-helps);
+  font-weight: bold;
+}
+
+.navbar-brand:hover {
+  color: var(--cor-texto);
 }
 
 body {
@@ -32,6 +37,10 @@ body {
 
 .title {
   color: var(--cor-escuro);
+}
+
+.donation-title {
+  color: var(--cor-helps);
 }
 
 .botao-padrao {
@@ -91,14 +100,25 @@ aside .sidebar a span {
   box-shadow: var(--box-shadow);
 }
 
-aside .sidebar a:last-child {
+/* Penúltimo link */
+aside .sidebar a:nth-last-of-type(2) {
+  position: absolute;
+  bottom: 4rem; /* Ajuste conforme necessário */
+  width: 100%;
+  color: var(--cor-helps2);
+}
+
+/* Último link */
+aside .sidebar a:last-of-type {
   position: absolute;
   bottom: 1rem;
   width: 100%;
   color: var(--cor-helps2);
 }
 
-aside .sidebar a:last-child:hover {
+/* Estilo de hover para ambos */
+aside .sidebar a:nth-last-of-type(2):hover,
+aside .sidebar a:last-of-type:hover {
   color: var(--cor-helps2);
 }
 
@@ -203,7 +223,7 @@ aside.condensed .sidebar a span {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #00bcd4;
+
   /* Cor de fundo semelhante ao da imagem */
   padding: 20px;
   border-radius: 10px;
@@ -213,13 +233,15 @@ aside.condensed .sidebar a span {
 }
 
 .container-parceiros h1 {
-  color: #fff;
+  color: var(--cor-helps);
+  font-weight:bold ;
   margin-bottom: 20px;
   font-size: 2em;
 }
 
 .container-parceiros {
   margin-top: 5.5rem;
+  
   width: calc(100% - 45rem);
   /* Ajuste para evitar sobreposição com a sidebar */
   margin-left: 260px;
@@ -235,9 +257,9 @@ aside.condensed .sidebar a span {
 .empresa {
   display: flex;
   align-items: center;
-  background-color: var(--cor-helps);
+  background-color: var(--cor-branco2);
   /* Cor de fundo dos itens */
-  color: var(--cor-branco2);
+  color: var(--cor-texto);
   font-weight: bold;
   width: 100%;
   padding: 10px 20px;
@@ -250,6 +272,8 @@ aside.condensed .sidebar a span {
   margin-left: 33%;
   height: var(--empresa-size);
   width: var(--empresa-size);
+  border: var(--cor-escuro) 3px solid;
+  box-shadow: 0 0 5px 3px var(--cor-escuro);
 }
 
 .container-donation,
@@ -278,7 +302,7 @@ aside.condensed .sidebar a span {
 
 .doacao-card,
 .apoio-card {
-  background-color: var(--cor-background-cartoes);
+  background-color: var(--cor-background-cartoes2);
   color: var(--cor-branco2);
   border: 1px solid var(--cor-texto);
   padding: var(--padding-1);
@@ -396,12 +420,13 @@ input {
   padding: 10px 20px;
   width: -webkit-fill-available;
   background-color: var(--cor-help-verde);
-  color: #282c34;
+  color: var(--cor-texto);
   border: none;
   border-radius: 4px;
   font-size: var(--font-size1);
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin: 1rem;
 }
 
 .btn-box .solid:hover {
@@ -590,8 +615,8 @@ input {
   margin-right: 30px;
 }
 
-#radio1:checked ~ .navigation-auto .auto-btn1, 
-#radio2:checked ~ .navigation-auto .auto-btn2, 
+#radio1:checked ~ .navigation-auto .auto-btn1,
+#radio2:checked ~ .navigation-auto .auto-btn2,
 #radio3:checked ~ .navigation-auto .auto-btn3 {
   background-color: var(--cor-helps2);
 }
@@ -608,35 +633,28 @@ input {
 }
 
 .textoHomeEstilo {
-  color: #fff;
+  color: var(--cor-texto);
   line-height: 2;
 }
 
 .container-cartoes-geral h2 {
   margin-left: 5%;
-  color: #fff;
+  color: var(--cor-texto);
   margin-top: 20px;
+  margin-left: 260px;
 }
-
-/*.container-cartoes-geral {
-  f
-}*/
 
 .container-cartoes1 {
-  background-color: #fff;
+  background-color: var(--cor-branco);
+  color: var(--cor-texto);
   border-radius: var(--border-radius-1);
-  margin: 20px;
-  width: 650px;
+  margin-left: 260px;
+  width: 700px;
   padding: 10px;
 }
 
-.container-cartoes-locais {
-  background-color: #fff;
-  border-radius: var(--border-radius-1);
-  margin: 20px;
-  margin-left: var(--dist-sidebar);
-  padding: 10px;
-  width: 750px;
+.container-cartoes1 h5{
+  font-weight: bolder;
 }
 
 .texto-cartoes {
@@ -693,4 +711,8 @@ input {
   background-color: var(--cor-helps2);
   border: 2px solid var(--cor-help-verde);
   transition: var(--transiotion-ease);
+}
+
+#userEmail {
+  font-size: 1.2rem;
 }

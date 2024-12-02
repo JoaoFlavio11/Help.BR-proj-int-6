@@ -5,9 +5,11 @@
   --cor-help-light: #139135;
   --cor-help-dark: #063613;
   --cor-help-dark2: #104d20;
+  --cor-help-dark3: #1c4b29;
   --cor-success: #41f1b6;
   --cor-branco: #202528;
   --cor-branco2: #1d1d1d;
+  --cor-azul: #173b4c;
   --cor-info-escuro: #7d8da1;
   --cor-info-claro: #dce1eb;
   --cor-aviso: #c50000;
@@ -16,7 +18,8 @@
   --cor-scrollbar: #a7a7a7;
   --cor-texto: #edeffd;
   --cor-background-cartoes: #f9f9f9;
-  --cor-background: #181e18;
+  --cor-background-cartoes2: #cfdbd1;
+  --cor-background: #161616;
   --cor-background-branco: #c0c0c0;
   --cor-preto: #000;
   --cor-loading: rgb(0, 0, 0, 0.5);

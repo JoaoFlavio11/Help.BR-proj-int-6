@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 /* eslint-disable @typescript-eslint/no-unused-vars */
+//login.js
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     window.location.href = "http://localhost:3000/";

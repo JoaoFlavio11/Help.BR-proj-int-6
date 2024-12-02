@@ -62,5 +62,3 @@ app.listen(port, () =>
 );
 
 
-// Exporta o app para testes
-export { app };

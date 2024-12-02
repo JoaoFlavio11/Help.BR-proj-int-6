@@ -5,7 +5,8 @@
   "scripts": {
     "start:dev": "nodemon --watch 'src/' --exec 'ts-node src/index.ts' -e ts",
     "format": "prettier --write .",
-    "test": "jest"
+    "test": "jest",
+    "format-html-css": "prettier --write \"**/*.{html,css}\""
   },
   "keywords": [],
   "author": "",
