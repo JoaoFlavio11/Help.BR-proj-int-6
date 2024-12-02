@@ -6,11 +6,7 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background: linear-gradient(
-    135deg,
-    var(--cor-help-verde),
-    var(--cor-helps2)
-  );
+  background: linear-gradient(135deg, var(--cor-help-verde), var(--cor-helps2));
   color: var(--cor-texto);
   text-align: center;
 }

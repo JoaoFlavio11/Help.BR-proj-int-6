@@ -101,13 +101,18 @@
           <h3><b>Pontos de apoio</b></h3>
         </a>
 
+        <a href="http://localhost:3000/profile" title="Doações disponíveis">
+          <span class="material-symbols-outlined">person</span>
+          <b><span id="userEmail"></b>
+        </a>
+
         <a onclick="logout()" title="Sair">
           <span class="material-symbols-outlined">exit_to_app</span>
           <h3><b>Sair</b></h3>
         </a>
       </div>
     </aside>
-    <!--Sidebar end-->
+    <!-- Sidebar end -->
 
     <!-- botao -->
     <br />
@@ -115,14 +120,13 @@
     <br />
     <br />
     <div class="container-cartoes-geral">
-      <div class="container-cartoes-locais">
+      <div class="container-cartoes1">
         <h5>Cadastre um ponto de apoio</h5>
-        <p class="texto-cartoes">&boxtimes;&boxtimes;&boxtimes;</p>
+        <p class="texto-cartoes">
+          Para cadastrar um ponto de apoio em nosso site, certifique-se de que o local seja seguro e público. Esses locais armazenam as doações e nossa equipe se compromete com a segurança dos itens.
+        </p>
         <a href="http://localhost:3000/location/create" class="btn botao-padrao"
           >Cadastre um ponto de apoio</a
-        >
-        <a href="http://localhost:3000/location/map" class="btn botao-padrao"
-          >Acesse nosso mapa!</a
         >
       </div>
     </div>
@@ -142,6 +146,7 @@
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
     <script src="../../firebase/firebaseConfig.js"></script>
+    <script src="../../firebase/secure/updateUser.js"></script>
     <script src="../../firebase/secure/auth-guard.js"></script>
   </body>
 </html>

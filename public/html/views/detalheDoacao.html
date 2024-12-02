@@ -95,14 +95,19 @@
           <h3><b>Pontos de apoio</b></h3>
         </a>
 
+        <a href="http://localhost:3000/profile" title="Doações disponíveis">
+          <span class="material-symbols-outlined">person</span>
+          <h3><b>Perfil</b></h3>
+        </a>
+
         <a onclick="logout()" title="Sair">
           <span class="material-symbols-outlined">exit_to_app</span>
           <h3><b>Sair</b></h3>
         </a>
       </div>
     </aside>
-    <!--Sidebar end-->
-
+    <!-- Sidebar end -->
+    <br /><br />
     <div class="detalhes-container">
       <h1 id="doacao-nome">Nome da Doação</h1>
       <p id="doacao-descricao">Descrição da doação</p>
@@ -111,6 +116,7 @@
         <strong>Quantidade:</strong>
         <span id="doacao-quantidade">Quantidade</span>
       </p>
+      <p><b>Chave PIX:</b> <span id="doacao-chave-pix">Chave pix</span></p>
     </div>
 
     <div class="form-donation-details">
@@ -191,11 +197,12 @@
       </form>
     </div>
   </body>
-  <script src="../js/views/detalheDoacao.js"></script>
+  <script src="../../js/views/detalheDoacao.js"></script>
   <script src="../../js/effects.js"></script>
 
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
   <script src="../../firebase/firebaseConfig.js"></script>
   <script src="../../firebase/secure/auth-guard.js"></script>
+  <script src="../../firebase/secure/updateUser.js"></script>
 </html>

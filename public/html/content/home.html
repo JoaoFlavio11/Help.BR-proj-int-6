@@ -16,8 +16,7 @@
     />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    />
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -25,6 +24,8 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../../css/index.css" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14'>💰</text></svg>">
+
     <title>Help.BR</title>
   </head>
 
@@ -108,19 +109,19 @@
           <h3><b>Pontos de apoio</b></h3>
         </a>
 
-        <a href="http://localhost:3000/mulambo" title="Doações disponíveis">
-          <span class="material-symbols-outlined">error</span>
-          <h3><b>teste rota ruim</b></h3>
+        
+        <a href="http://localhost:3000/profile" title="Doações disponíveis">
+          <span class="material-symbols-outlined">person</span>
+          <b><span id="userEmail"></b>
         </a>
 
         <a onclick="logout()" title="Sair">
           <span class="material-symbols-outlined">exit_to_app</span>
           <h3><b>Sair</b></h3>
         </a>
-
       </div>
     </aside>
-    <!--Sidebar end-->
+    <!-- Sidebar end -->
 
     <div class="slider">
       <div class="slides">
@@ -197,6 +198,7 @@
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
     <script src="../../firebase/firebaseConfig.js"></script>
+    <script src="../../firebase/secure/updateUser.js"></script>
     <script src="../../firebase/secure/auth-guard.js"></script>
     <script src="../../js/effects.js"></script>
   </body>

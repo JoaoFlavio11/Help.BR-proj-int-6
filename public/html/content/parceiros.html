@@ -99,55 +99,60 @@
           <h3><b>Pontos de apoio</b></h3>
         </a>
 
+        <a href="http://localhost:3000/profile" title="Doações disponíveis">
+          <span class="material-symbols-outlined">person</span>
+          <b><span id="userEmail"></b>
+        </a>
+
         <a onclick="logout()" title="Sair">
           <span class="material-symbols-outlined">exit_to_app</span>
           <h3><b>Sair</b></h3>
         </a>
       </div>
     </aside>
-    <!--Sidebar end-->
+    <!-- Sidebar end -->
 
     <div class="container-parceiros">
       <h1>Parceiros</h1>
       <div class="empresa">
         <div class="parceiro-txt">
-          <span>nome da empresa</span>
-          <p>Nossa parceira desde 2023</p>
+          <h3>Faber-Castell</h3>
+          <p>Nossa parceira desde 2020</p>
         </div>
         <div class="empresa-icon">
-          <img src="../../assets/images/imagem1.png" alt="empresa1" />
+          <img src="../../assets/images/loja-faber-castelll-og.avif" alt="empresa1" />
         </div>
       </div>
 
       <div class="empresa">
         <div class="parceiro-txt">
-          <span>nome da empresa</span>
+          <h3>Unisal</h3>
           <p>Nossa parceira desde 2023</p>
         </div>
         <div class="empresa-icon">
-          <img src="../../assets/images/imagem1.png" alt="empresa2" />
+          <img src="../../assets/images/unisal2.png" alt="empresa2" />
         </div>
       </div>
 
       <div class="empresa">
         <div class="parceiro-txt">
-          <span>nome da empresa</span>
-          <p>Nossa parceira desde 2023</p>
+          <h3>Santander</h3>
+          <p>Nossa parceira desde 2021</p>
         </div>
         <div class="empresa-icon">
-          <img src="../../assets/images/imagem1.png" alt="empresa2" />
+          <img src="../../assets/images/santander.jpg" alt="empresa3" />
         </div>
       </div>
     </div>
 
     <div class="container-cartoes-geral">
-      <h2>Torne-se um Parceiro!</h2>
+      <h2>Seja um Patrocinador!</h2>
       <div class="row">
         <div class="col-md-6">
           <div class="container-cartoes1">
-            <h5 class="texto-cartoes">Seja um Patrocinador</h5>
+            
             <p class="card-text">
-              Patrocine nossos projetos e amplie o impacto social.
+              Patrocine nosso projeto e amplie o impacto social de sua empresa.
             </p>
             <a
               href="http://localhost:3000/colab/sponsor"
@@ -165,6 +170,7 @@
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
     <script src="../../firebase/secure/auth-guard.js"></script>
+    <script src="../../firebase/secure/updateUser.js"></script>
     <script src="../../firebase/firebaseConfig.js"></script>
   </body>
 </html>

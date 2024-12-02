@@ -8,15 +8,17 @@ async function carregarDetalhesDoacao() {
     const donation = await response.json();
 
     if (response.ok) {
-      document.getElementById("doacao-nome").textContent =
-        donation.donationName;
-      document.getElementById("doacao-descricao").textContent =
-        donation.donationDescription;
-      document.getElementById("doacao-tipo").textContent = donation.itemType;
-      document.getElementById("doacao-quantidade").textContent =
-        donation.quantity;
-        document.getElementById("doacao-chave-pix").textContent =
-        donation.chavePix; // Adicionado campo chavePix
+      const nomeElemento = document.getElementById("doacao-nome");
+      const descricaoElemento = document.getElementById("doacao-descricao");
+      const tipoElemento = document.getElementById("doacao-tipo");
+      const quantidadeElemento = document.getElementById("doacao-quantidade");
+      const chavePixElemento = document.getElementById("doacao-chave-pix");
+
+      if (nomeElemento) nomeElemento.textContent = donation.donationName;
+      if (descricaoElemento) descricaoElemento.textContent = donation.donationDescription;
+      if (tipoElemento) tipoElemento.textContent = donation.itemType;
+      if (quantidadeElemento) quantidadeElemento.textContent = donation.quantity;
+      if (chavePixElemento) chavePixElemento.textContent = donation.chavePix; // Adicionado campo chavePix
     } else {
       document.querySelector(".detalhes-container").innerHTML =
         "<p>Doação não encontrada.</p>";

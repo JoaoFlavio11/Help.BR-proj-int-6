@@ -17,4 +17,10 @@ pageRouter.get("/parceiros", cacheMiddleware, (req, res) => {
   );
 });
 
+pageRouter.get("/profile", cacheMiddleware, (req, res) => {
+  res.sendFile(
+    path.join(__dirname, "../../public/html", "content", "profile.html"),
+  );
+});
+
 export default pageRouter;
