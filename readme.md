@@ -154,13 +154,3 @@ Este projeto está licenciado sob a [MIT License](LICENSE).
 
 ---
 
-## 🖼️ Capturas de Tela
-
-- **Tela de Login:**
-  ![Homepage](./public/assets/screenshots/homepage.png)
-
-- **Listagem de Doações:**
-  ![Listagem de Doações](./public/assets/screenshots/donations.png)
-
-- **Pontos de Coleta:**
-  ![Pontos de Coleta](./public/assets/screenshots/pontos.png)
