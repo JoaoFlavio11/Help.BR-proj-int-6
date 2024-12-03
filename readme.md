@@ -172,7 +172,7 @@ O projeto segue a seguinte arquitetura:
 
 ## 👥 Contribuidores
 
-Agradecemos a todos que contribuíram para este projeto!
+ Integrantes do nosso grupo.
 
 - [João Flávio](https://github.com/JoaoFlavio11)
 - [Théo](https://github.com/TheoGomesrQLZ)
@@ -183,7 +183,7 @@ Agradecemos a todos que contribuíram para este projeto!
 ---
 
 ![Node.js](https://img.shields.io/badge/node.js-16.x-brightgreen)
-![TypeScript](https://img.shields.io/badge/typescript-4.x-blue)
+![TypeScript](https://img.shields.io/badge/typescript-5.6.3-blue)
 ![License](https://img.shields.io/badge/license-MIT-brightgreen)
 ![Status](https://img.shields.io/badge/status-Em%20desenvolvimento-orange)
 
