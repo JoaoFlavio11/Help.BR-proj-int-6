@@ -127,9 +127,14 @@ Se quiser contribuir, siga estas etapas:
 
 ---
 
-## 📝 Licença
+## 🏗️ Arquitetura do Sistema
 
-Este projeto está licenciado sob a [MIT License](LICENSE).
+O projeto segue a seguinte arquitetura:
+
+1. **Frontend:** HTML, CSS, e JS interagem com a API via requisições HTTP.
+2. **Backend:** Implementado em Node.js, seguindo a estrutura MVC.
+3. **Banco de Dados:** MongoDB é utilizado para persistir informações de usuários e doações.
+4. **Cache:** Redis para armazenar dados temporários, otimizando a performance.
 
 ---
 
@@ -139,6 +144,17 @@ Este projeto está licenciado sob a [MIT License](LICENSE).
 - **Sistema de notificações** para alertar os usuários sobre novas campanhas ou atualizações de doações.
 - **Dashboard administrativo** para gerenciar doações e usuários.
 - **Melhorias no frontend** usando React ou Next.js para maior interatividade.
+
+---
+
+## ✅ Checklist do Projeto
+
+- [x] Cadastro de usuários
+- [x] Login e autenticação com Firebase auth
+- [x] Criação de doações
+- [ ] Integração com gateway de pagamento
+- [ ] Sistema de notificações
+- [ ] Dashboard administrativo
 
 
 ---
@@ -153,4 +169,44 @@ Este projeto está licenciado sob a [MIT License](LICENSE).
 - [Redis](https://redis.io/)
 
 ---
+
+## 👥 Contribuidores
+
+Agradecemos a todos que contribuíram para este projeto!
+
+- [João Flávio](https://github.com/JoaoFlavio11)
+- [Théo](https://github.com/TheoGomesrQLZ)
+- [Pedro](https://github.com/BastosP)
+- [André](https://github.com/Andreizsoares)
+- [Maria Clara](https://github.com/clarinhaThomaz)
+
+---
+
+![Node.js](https://img.shields.io/badge/node.js-16.x-brightgreen)
+![TypeScript](https://img.shields.io/badge/typescript-4.x-blue)
+![License](https://img.shields.io/badge/license-MIT-brightgreen)
+![Status](https://img.shields.io/badge/status-Em%20desenvolvimento-orange)
+
+---
+
+## 🖼️ Capturas de Tela
+
+- **Tela de Login:**
+  ![Homepage](./public/assets/screenshots/homepage.png)
+
+- **Listagem de Doações:**
+  ![Listagem de Doações](./public/assets/screenshots/donations.png)
+
+- **Pontos de Coleta:**
+  ![Pontos de Coleta](./public/assets/screenshots/pontos.png)
+
+- **Cadastro de Doações:**
+  ![Pontos de Coleta](./public/assets/screenshots/cadastroDoação.png)
+
+---
+
+
+## 📝 Licença
+
+Este projeto está licenciado sob a [MIT License](LICENSE).
 
